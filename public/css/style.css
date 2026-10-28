@@ -123,18 +123,19 @@ textarea:focus-visible {
 .skip-link {
   position: absolute;
   left: var(--space-2);
-  top: -3rem;
+  top: 0;
+  transform: translateY(-110%); /* totalmente fora da tela até receber foco */
   background: var(--color-gold);
   color: var(--color-green-dark);
   padding: 0.75rem 1.25rem;
   border-radius: 0 0 var(--radius) var(--radius);
   font-weight: 600;
   z-index: 100;
-  transition: top 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .skip-link:focus {
-  top: 0;
+  transform: translateY(0);
 }
 
 .visually-hidden {
@@ -610,7 +611,304 @@ textarea:focus-visible {
   padding: 0;
 }
 
-/* ---------- 12. Responsividade ---------- */
+/* ---------- 12. Páginas internas (textos, tabelas e avisos) ---------- */
+.conteudo-texto {
+  max-width: 48rem;
+}
+
+.conteudo-texto > * + h2 {
+  margin-top: var(--space-4);
+}
+
+.conteudo-texto ul {
+  padding-left: 1.25rem;
+}
+
+.conteudo-texto li + li {
+  margin-top: 0.4rem;
+}
+
+.aviso-construcao {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-terracota);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.aviso-construcao p:last-child {
+  margin-bottom: 0;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--space-3);
+}
+
+.tabela {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  font-size: 0.95rem;
+}
+
+.tabela caption {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-green-dark);
+  margin-bottom: var(--space-1);
+}
+
+.tabela th,
+.tabela td {
+  border: 1px solid var(--color-border);
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabela thead th {
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+}
+
+.figura {
+  margin: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.figura svg,
+.figura img {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(160deg, var(--color-green-dark) 0%, var(--color-green) 100%);
+  padding: var(--space-3);
+}
+
+.figura figcaption {
+  padding: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+kbd {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 0.3rem;
+  padding: 0.05rem 0.35rem;
+}
+
+/* ---------- 13. EcoBot (chat com IA) ---------- */
+.site-footer {
+  padding-bottom: 4.5rem; /* espaço para o botão flutuante não cobrir o rodapé */
+}
+
+.ecobot {
+  position: fixed;
+  right: var(--space-2);
+  bottom: var(--space-2);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+}
+
+.ecobot-abrir {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--color-green-dark);
+  border-radius: 999px;
+  background-color: var(--color-gold);
+  color: var(--color-green-dark);
+  font: 600 1rem var(--font-body);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.ecobot-abrir:hover {
+  background-color: var(--color-gold-dark);
+}
+
+.ecobot-abrir svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.ecobot-painel {
+  width: min(24rem, calc(100vw - 2rem));
+  max-height: min(36rem, calc(100vh - 6rem));
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-green-dark);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.ecobot-painel[hidden] {
+  display: none;
+}
+
+.ecobot-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+}
+
+.ecobot-cabecalho h2 {
+  color: #ffffff;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.ecobot-aviso {
+  font-size: 0.8rem;
+  color: #eaf2ec;
+  margin: 0.2rem 0 0;
+}
+
+.ecobot-fechar {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #ffffff;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ecobot-fechar:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.ecobot-fechar:focus-visible {
+  outline-color: var(--color-gold);
+}
+
+.ecobot-mensagens {
+  flex: 1;
+  min-height: 10rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background-color: var(--color-bg);
+}
+
+.ecobot-mensagens:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: -3px;
+}
+
+.ecobot-msg {
+  max-width: 88%;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ecobot-msg--bot {
+  align-self: flex-start;
+  background-color: var(--color-green-light);
+  color: var(--color-text);
+}
+
+.ecobot-msg--usuario {
+  align-self: flex-end;
+  background-color: var(--color-green-dark);
+  color: #ffffff;
+}
+
+.ecobot-msg--erro {
+  align-self: flex-start;
+  background-color: var(--color-surface);
+  color: var(--color-terracota);
+  border-left: 4px solid var(--color-terracota);
+  font-weight: 600;
+}
+
+.ecobot-status {
+  margin: 0;
+  padding: 0 var(--space-2);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-green);
+}
+
+.ecobot-status:empty {
+  display: none;
+}
+
+.ecobot-form {
+  display: grid;
+  gap: 0.35rem;
+  padding: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.ecobot-form label {
+  font-weight: 600;
+}
+
+.ecobot-form textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--color-text);
+  border: 2px solid var(--color-text-muted);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.7rem;
+  resize: vertical;
+}
+
+.ecobot-form textarea:focus-visible {
+  border-color: var(--color-green);
+}
+
+.ecobot-dica {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.ecobot-enviar {
+  justify-self: end;
+  cursor: pointer;
+}
+
+.ecobot-enviar:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+@media print {
+  .ecobot {
+    display: none;
+  }
+}
+
+/* ---------- 14. Responsividade ---------- */
 @media (min-width: 600px) {
   .footer-inner {
     grid-template-columns: repeat(3, 1fr);

@@ -1,0 +1,22 @@
+# Segredos — nunca enviar ao GitHub
+.env
+.env.*
+!.env.example
+
+# Dependências
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos do sistema operacional e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Arquivos temporários do Office
+~$*

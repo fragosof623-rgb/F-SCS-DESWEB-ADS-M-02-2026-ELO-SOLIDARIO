@@ -1,0 +1,13 @@
+---
+description: Regras para chaves de API e outros segredos
+alwaysApply: true
+---
+
+# Segurança de segredos
+
+- Chaves e tokens só existem em variáveis de ambiente: no `.env` local (fora do Git) ou no painel do Railway.
+- Nunca escreva uma chave no código, em comentários, em `.env.example`, em `.cursor/mcp.json`, em commits ou em mensagens.
+- Ao criar uma variável nova, adicione o **nome** dela, sem valor, ao `.env.example` e documente em `docs/plano-contexto.md`.
+- A chave da IA é usada apenas em `lib/ia.js`, no servidor. Nada em `public/` pode conter ou receber segredos.
+- Antes de cada commit, confira com `git status` que o `.env` não aparece na lista.
+- Se uma chave vazar, revogue-a imediatamente no painel do provedor e gere outra.

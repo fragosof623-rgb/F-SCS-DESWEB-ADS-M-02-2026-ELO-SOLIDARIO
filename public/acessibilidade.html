@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acessibilidade — Elo Solidário</title>
+  <meta name="description" content="Medidas de acessibilidade digital adotadas no Elo Solidário para pessoas com deficiência: teclado, leitores de tela, contraste e mais." />
+  <meta name="author" content="NEXT HTML — Curso Superior de Informática, Front-End, UNICID" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/ecobot.js" defer></script>
+</head>
+<body>
+  <!-- Responsável pela página: Gustavo Mariano Carvalho -->
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Elo Solidário — página inicial">
+        <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="3" />
+          <path d="M15 24c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9Z" stroke="currentColor" stroke-width="3" />
+          <path d="M24 15v18M15 24h18" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <span>Elo Solidário</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="acessibilidade.html" aria-current="page">Acessibilidade</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="midia.html">Mídia</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="orcamento_hospedagem.html">Hospedagem</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="page-hero" aria-labelledby="pagina-heading">
+      <div class="container">
+        <h1 id="pagina-heading">Acessibilidade</h1>
+        <p>Pessoas com deficiência são o público prioritário deste site. Veja o que fizemos para que todos possam navegar com autonomia.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="medidas-heading">
+      <div class="container conteudo-texto">
+        <h2 id="medidas-heading">Medidas adotadas</h2>
+        <ul>
+          <li><strong>Link "Pular para o conteúdo principal":</strong> é o primeiro item da página ao usar a tecla <kbd>Tab</kbd> e leva direto ao conteúdo, sem passar pelo menu.</li>
+          <li><strong>Navegação completa por teclado:</strong> todos os links, botões, campos e o EcoBot funcionam sem mouse, com contorno de foco bem visível.</li>
+          <li><strong>Estrutura para leitores de tela:</strong> idioma definido como português do Brasil, títulos em ordem, regiões de cabeçalho, navegação, conteúdo e rodapé, e indicação da página atual no menu.</li>
+          <li><strong>Contraste de cores:</strong> as combinações de texto e fundo seguem o nível AA das diretrizes WCAG (no mínimo 4,5:1 para texto comum).</li>
+          <li><strong>Formulários acessíveis:</strong> todos os campos têm rótulo, e as mensagens de erro e de status são anunciadas pelo leitor de tela.</li>
+          <li><strong>Texto redimensionável:</strong> o layout se adapta ao zoom do navegador e a telas de celular, tablet e computador.</li>
+          <li><strong>Menos movimento:</strong> se o seu sistema estiver configurado para reduzir animações, o site respeita essa preferência.</li>
+          <li><strong>Imagens com descrição:</strong> imagens informativas têm texto alternativo; ilustrações decorativas são ignoradas pelos leitores de tela.</li>
+        </ul>
+
+        <h2 id="teclado-heading">Atalhos de teclado úteis</h2>
+        <ul>
+          <li><kbd>Tab</kbd> avança para o próximo link ou campo; <kbd>Shift</kbd> + <kbd>Tab</kbd> volta.</li>
+          <li><kbd>Enter</kbd> abre um link ou aciona um botão.</li>
+          <li>No EcoBot, <kbd>Enter</kbd> envia a pergunta, <kbd>Shift</kbd> + <kbd>Enter</kbd> quebra a linha e <kbd>Esc</kbd> fecha o chat.</li>
+        </ul>
+
+        <h2 id="barreira-heading">Encontrou alguma barreira?</h2>
+        <p>
+          Se algo no site não funcionou bem para você, conte para a equipe pela
+          <a href="contato.html">página de Contato</a>. Sua mensagem nos ajuda a melhorar.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <p class="footer-logo">Elo Solidário</p>
+        <p>
+          Trabalho acadêmico da equipe NEXT HTML para a disciplina de Front-End, Curso Superior de
+          Informática — UNICID.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links principais do rodapé">
+        <h2 class="footer-heading">Navegação</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-heading">Acessibilidade</h2>
+        <p>Este site segue boas práticas de acessibilidade digital, pensadas para pessoas com deficiência.</p>
+        <a href="acessibilidade.html">Saiba mais sobre acessibilidade</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Elo Solidário — Projeto acadêmico sem fins comerciais.</p>
+    </div>
+  </footer>
+</body>
+</html>

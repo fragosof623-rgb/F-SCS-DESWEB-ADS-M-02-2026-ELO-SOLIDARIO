@@ -1,0 +1,16 @@
+---
+description: Padrões de código do Elo Solidário (HTML, CSS, JavaScript e Node)
+alwaysApply: true
+---
+
+# Padrões de código
+
+- Idioma: textos, comentários e nomes de variáveis/funções em português do Brasil (ex.: `buscarCep`, `mostrarStatus`).
+- HTML5 semântico (`header`, `nav`, `main`, `section`, `article`, `footer`), `lang="pt-BR"` e um único `h1` por página, com títulos em ordem.
+- Toda página nova copia exatamente o cabeçalho, o menu (com `aria-current="page"` na página atual) e o rodapé das demais, e carrega `css/style.css` e `js/ecobot.js`.
+- CSS: um único arquivo, `public/css/style.css`. Use sempre as variáveis de `:root` (cores, fontes, espaçamentos); não crie cores novas soltas.
+- JavaScript do navegador: puro, sem bibliotecas, um arquivo por funcionalidade em `public/js/`, carregado com `defer`. Use `textContent`, nunca `innerHTML`, com conteúdo vindo do usuário ou da rede.
+- Node: módulos ES (`import`/`export`), `async/await`, erros tratados com mensagens claras para o usuário.
+- Nomes de arquivos em minúsculas, sem espaços nem acentos; caminhos sempre relativos.
+- O HTML deve passar no W3C Validator.
+- Não invente dados, estatísticas, notícias ou imagens de terceiros: só publique com fonte real e identificável.

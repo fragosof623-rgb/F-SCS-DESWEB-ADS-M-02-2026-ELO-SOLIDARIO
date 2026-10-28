@@ -1,0 +1,15 @@
+---
+description: Requisitos de acessibilidade (público prioritário: pessoas com deficiência)
+alwaysApply: true
+---
+
+# Acessibilidade
+
+- Tudo deve funcionar só com o teclado, com foco sempre visível (não remova `outline` sem substituto).
+- Contraste mínimo WCAG AA: 4,5:1 para texto comum e 3:1 para texto grande, ícones e bordas de campos. Use a paleta de `:root`.
+- Todo campo de formulário tem `<label for>`; erros e status vão em um elemento com `aria-live="polite"` ligado ao campo por `aria-describedby`, e o campo com erro recebe `aria-invalid="true"`.
+- Nunca use `alert()`, `confirm()` ou `prompt()`; mostre mensagens na própria página.
+- Imagens informativas têm `alt` descritivo; ilustrações decorativas usam `alt=""` ou `aria-hidden="true"`.
+- Vídeos com legenda, áudios com transcrição e nada que toque sozinho.
+- Use ARIA só quando o HTML semântico não resolver.
+- Respeite `prefers-reduced-motion` e mantenha o layout utilizável com zoom de 200% e no celular (um campo por linha).

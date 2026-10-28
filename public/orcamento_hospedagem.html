@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospedagem — Elo Solidário</title>
+  <meta name="description" content="Comparativo de hospedagem e domínio para publicar o site Elo Solidário, com o servidor Node do EcoBot." />
+  <meta name="author" content="NEXT HTML — Curso Superior de Informática, Front-End, UNICID" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/ecobot.js" defer></script>
+</head>
+<body>
+  <!-- Responsável pela página: Kaue Cândido Alberti -->
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Elo Solidário — página inicial">
+        <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="3" />
+          <path d="M15 24c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9Z" stroke="currentColor" stroke-width="3" />
+          <path d="M24 15v18M15 24h18" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <span>Elo Solidário</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="acessibilidade.html">Acessibilidade</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="midia.html">Mídia</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="orcamento_hospedagem.html" aria-current="page">Hospedagem</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="page-hero" aria-labelledby="pagina-heading">
+      <div class="container">
+        <h1 id="pagina-heading">Hospedagem e domínio</h1>
+        <p>Onde o site está publicado hoje e quais opções a equipe avaliou para hospedagem e domínio.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="atual-heading">
+      <div class="container conteudo-texto">
+        <div class="aviso-construcao" role="note">
+          <p><strong>Página em construção.</strong> Os valores de cada plano serão pesquisados nos sites oficiais e inseridos com a data da consulta.</p>
+          <p>Responsável pela versão final: Kaue Cândido Alberti.</p>
+        </div>
+        <h2 id="atual-heading">Como o site está publicado hoje</h2>
+        <p>
+          O código fica no GitHub e é publicado no Railway. Como o site tem um servidor Node.js (que faz o
+          EcoBot funcionar), a hospedagem precisa executar aplicações Node — uma hospedagem só de arquivos
+          estáticos não seria suficiente.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="comparativo-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="comparativo-heading">Comparativo de hospedagem</h2>
+        </div>
+
+        <div class="tabela-wrapper">
+          <table class="tabela">
+            <caption>Opções de hospedagem avaliadas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Serviço</th>
+                <th scope="col">Roda o servidor Node (EcoBot)?</th>
+                <th scope="col">Custo</th>
+                <th scope="col">Observação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Railway</td>
+                <td>Sim</td>
+                <td>A pesquisar</td>
+                <td>Opção usada hoje; publica a partir do GitHub.</td>
+              </tr>
+              <tr>
+                <td>Render</td>
+                <td>Sim</td>
+                <td>A pesquisar</td>
+                <td>Também publica a partir do GitHub.</td>
+              </tr>
+              <tr>
+                <td>GitHub Pages</td>
+                <td>Não</td>
+                <td>A pesquisar</td>
+                <td>Só arquivos estáticos: o site abriria, mas o EcoBot não funcionaria.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="dominio-heading">Domínio</h2>
+        <p>
+          Um endereço próprio terminado em .br é registrado no Registro.br. O valor anual será consultado no
+          site oficial e incluído aqui.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <p class="footer-logo">Elo Solidário</p>
+        <p>
+          Trabalho acadêmico da equipe NEXT HTML para a disciplina de Front-End, Curso Superior de
+          Informática — UNICID.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links principais do rodapé">
+        <h2 class="footer-heading">Navegação</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-heading">Acessibilidade</h2>
+        <p>Este site segue boas práticas de acessibilidade digital, pensadas para pessoas com deficiência.</p>
+        <a href="acessibilidade.html">Saiba mais sobre acessibilidade</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Elo Solidário — Projeto acadêmico sem fins comerciais.</p>
+    </div>
+  </footer>
+</body>
+</html>

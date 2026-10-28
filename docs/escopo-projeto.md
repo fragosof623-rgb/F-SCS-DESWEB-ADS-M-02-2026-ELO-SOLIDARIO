@@ -128,7 +128,9 @@ index.html (Início)
 
 - **HTML5** semântico (estrutura de todas as páginas).
 - **CSS3** puro, com variáveis (`custom properties`), Flexbox e Grid (sem frameworks CSS externos, para manter o código enxuto e didático).
-- **JavaScript**: opcional nesta entrega (não utilizado no `index.html`); poderá ser usado pontualmente em páginas futuras (ex.: validação extra do formulário em `contato.html`), conforme permitido pela atividade.
+- **JavaScript** puro no navegador, sem bibliotecas: busca de endereço pelo CEP (API ViaCEP) em `contato.html` e a interface do assistente EcoBot em todas as páginas.
+- **Node.js + Express**: servidor que entrega as páginas da pasta `public/` e a rota `/api/chat` do EcoBot.
+- **Claude (Anthropic)**: modelo de IA do EcoBot, acessado pelo SDK oficial `@anthropic-ai/sdk`; a chave fica em variável de ambiente, fora do código. Detalhes em `docs/plano-contexto.md`.
 - **Editor de código:** VS Code (ou equivalente).
 - **Controle de versão:** Git/GitHub (recomendado para organização da equipe, não obrigatório pela atividade).
 - **Validadores:** W3C Markup Validator (validação de HTML), W3C CSS Validator, e ferramentas de checagem de acessibilidade (ex.: extensão axe DevTools ou Lighthouse) para gerar as evidências exigidas na pasta `/docs`.

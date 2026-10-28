@@ -1,0 +1,14 @@
+---
+description: Onde cada tipo de arquivo deve ficar no projeto
+alwaysApply: true
+---
+
+# Estrutura de pastas
+
+- `public/` — tudo o que o navegador recebe: as 10 páginas `.html` na raiz de `public/`, e as pastas `css/`, `js/` e `img/`.
+- `lib/` — código do servidor reutilizável. `lib/ia.js` é o **único** lugar que chama a API de IA.
+- `server.js` — servidor Express: serve `public/` e expõe as rotas em `/api/*`.
+- `docs/` — escopo, plano de contexto e documentação da equipe.
+- `.cursor/rules/` — estas regras; `.cursor/mcp.json` — servidores MCP (sem tokens).
+- Não crie páginas fora de `public/` nem coloque código de servidor dentro de `public/` (tudo ali fica visível para qualquer pessoa).
+- Imagens vão para `public/img/`, otimizadas, com nome em minúsculas.

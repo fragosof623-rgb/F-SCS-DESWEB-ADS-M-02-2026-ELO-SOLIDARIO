@@ -10,7 +10,7 @@ Documento elaborado conforme o roteiro da **Atividade A2 – Projeto de Site** (
 |---|---|
 | Nome da equipe | NEXT HTML |
 | Nome do projeto/site | Elo Solidário |
-| Integrantes | Breno Oliveira da Silva (RGM 47504749), Gustavo Mariano Carvalho (RGM 47720689), Felipe Fragoso (RGM 1747539101), Jihady Nikuluz Cardoso (RGM 47560789), Breno Santos Costa (RGM 47770473), Kaue Cândido Alberti (RGM 47556668) |
+| Integrantes | Breno Oliveira da Silva (RGM 47504749), Gustavo Mariano Carvalho (RGM 47720689), Felipe Fragoso (RGM 1747539101), Jihady Nikuluz Cardoso (RGM 47560789), Kaue Cândido Alberti (RGM 47556668) |
 | Data | 22/09/2026 |
 | Professor(a) / Disciplina | Prof. Paulo Fratta / Profª. Tatiana — Front-End, Curso Superior de Informática, UNICID |
 
@@ -143,11 +143,11 @@ index.html (Início)
 | 2 | `sobre.html` + `projetos.html` | Breno Oliveira da Silva | [DATA] |
 | 3 | `impacto.html` + `acessibilidade.html` | Gustavo Mariano Carvalho | [DATA] |
 | 4 | `galeria.html` + `midia.html` | Jihady Nikuluz Cardoso | [DATA] |
-| 5 | `noticias.html` + `contato.html` | Breno Santos Costa | [DATA] |
+| 5 | `noticias.html` + `contato.html` | Kaue Cândido Alberti (`noticias.html`) e Felipe Fragoso (`contato.html`) | [DATA] |
 | 6 | `orcamento_hospedagem.html` + documentação `/docs` | Kaue Cândido Alberti | [DATA] |
 | 7 | Validação W3C, testes de acessibilidade, ajustes finais e empacotamento (.zip) | Toda a equipe | [DATA] |
 
-*Divisão sugerida pela ordem da lista de integrantes — a equipe pode reorganizar conforme disponibilidade de cada um.*
+*Divisão sugerida pela ordem da lista de integrantes. Com a saída de um integrante, a etapa 5 foi dividida entre Kaue Cândido Alberti e Felipe Fragoso — a equipe pode reorganizar conforme disponibilidade de cada um.*
 
 Ferramenta de gestão sugerida: [Trello/Notion/Google Sheets — a definir pela equipe].
 

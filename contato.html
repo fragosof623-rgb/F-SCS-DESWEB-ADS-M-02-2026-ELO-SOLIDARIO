@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — Elo Solidário</title>
+  <meta name="description" content="Fale com a equipe do Elo Solidário: formulário de contato acessível, dados de contato do projeto acadêmico e integrantes da equipe NEXT HTML." />
+  <meta name="author" content="NEXT HTML — Curso Superior de Informática, Front-End, UNICID" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/cep.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Elo Solidário — página inicial">
+        <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="3" />
+          <path d="M15 24c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9Z" stroke="currentColor" stroke-width="3" />
+          <path d="M24 15v18M15 24h18" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <span>Elo Solidário</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="acessibilidade.html">Acessibilidade</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="midia.html">Mídia</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="contato.html" aria-current="page">Contato</a></li>
+          <li><a href="orcamento_hospedagem.html">Hospedagem</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <!-- Cabeçalho da página -->
+    <section class="page-hero" aria-labelledby="contato-heading">
+      <div class="container">
+        <h1 id="contato-heading">Fale com a gente</h1>
+        <p>
+          Tem uma dúvida, sugestão ou quer contar sobre uma iniciativa de economia solidária? Preencha o
+          formulário abaixo — a equipe do projeto vai ler a sua mensagem com atenção.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dados de contato + formulário -->
+    <section class="section" aria-labelledby="formulario-heading">
+      <div class="container contato-layout">
+        <aside class="contato-info" aria-labelledby="dados-heading">
+          <h2 id="dados-heading">Dados de contato</h2>
+          <address>
+            <dl>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:contato@elosolidario.example">contato@elosolidario.example</a></dd>
+
+              <dt>Telefone</dt>
+              <dd><a href="tel:+551100000000">(11) 0000-0000</a></dd>
+
+              <dt>Endereço</dt>
+              <dd>Rua Exemplo, 100 — Bairro Fictício<br />São Paulo/SP — CEP 00000-000</dd>
+
+              <dt>Atendimento</dt>
+              <dd>Segunda a sexta, das 9h às 18h</dd>
+            </dl>
+          </address>
+          <p class="nota-ficticia">
+            Dados fictícios, usados apenas para fins acadêmicos. O Elo Solidário é um trabalho da
+            disciplina de Front-End da UNICID.
+          </p>
+        </aside>
+
+        <div class="form-contato">
+          <h2 id="formulario-heading">Envie sua mensagem</h2>
+          <p class="field-hint">Campos marcados com <span class="obrigatorio" aria-hidden="true">*</span> são obrigatórios.</p>
+
+          <form id="form-contato" class="form-grid" action="contato.html" method="get">
+            <div class="field col-6">
+              <label for="nome">Nome completo <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="text" id="nome" name="nome" required minlength="2" maxlength="100" autocomplete="name" />
+            </div>
+
+            <div class="field col-3">
+              <label for="email">E-mail <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" />
+            </div>
+
+            <div class="field col-3">
+              <label for="telefone">Telefone (opcional)</label>
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                maxlength="15"
+                pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}"
+                title="DDD e número, por exemplo: (11) 91234-5678"
+                autocomplete="tel"
+                aria-describedby="telefone-dica"
+              />
+              <p id="telefone-dica" class="field-hint">Com DDD. Ex.: (11) 91234-5678</p>
+            </div>
+
+            <fieldset class="form-fieldset col-6">
+              <legend>Endereço</legend>
+              <div class="form-grid">
+                <div class="field col-2">
+                  <label for="cep">CEP <span class="obrigatorio" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="cep"
+                    name="cep"
+                    required
+                    inputmode="numeric"
+                    maxlength="9"
+                    pattern="\d{5}-?\d{3}"
+                    title="8 números, no formato 00000-000"
+                    autocomplete="postal-code"
+                    aria-describedby="cep-dica cep-status"
+                  />
+                  <p id="cep-dica" class="field-hint">8 números; o hífen é opcional. Ex.: 01310-100</p>
+                  <p id="cep-status" class="form-status" aria-live="polite" aria-atomic="true"></p>
+                  <p class="fonte-cep">
+                    Endereço consultado via ViaCEP
+                    (<a href="https://viacep.com.br/" target="_blank" rel="noopener noreferrer">viacep.com.br<span class="visually-hidden"> — abre em nova aba</span></a>)
+                  </p>
+                </div>
+
+                <div class="field col-4">
+                  <label for="rua">Rua <span class="obrigatorio" aria-hidden="true">*</span></label>
+                  <input type="text" id="rua" name="rua" required maxlength="120" autocomplete="address-line1" />
+                </div>
+
+                <div class="field col-2">
+                  <label for="numero">Número <span class="obrigatorio" aria-hidden="true">*</span></label>
+                  <input type="text" id="numero" name="numero" required maxlength="10" inputmode="numeric" />
+                </div>
+
+                <div class="field col-4">
+                  <label for="complemento">Complemento (opcional)</label>
+                  <input type="text" id="complemento" name="complemento" maxlength="60" autocomplete="address-line2" />
+                </div>
+
+                <div class="field col-2">
+                  <label for="bairro">Bairro <span class="obrigatorio" aria-hidden="true">*</span></label>
+                  <input type="text" id="bairro" name="bairro" required maxlength="80" autocomplete="address-level3" />
+                </div>
+
+                <div class="field col-2">
+                  <label for="cidade">Cidade <span class="obrigatorio" aria-hidden="true">*</span></label>
+                  <input type="text" id="cidade" name="cidade" required maxlength="80" autocomplete="address-level2" />
+                </div>
+
+                <div class="field col-2">
+                  <label for="uf">UF <span class="obrigatorio" aria-hidden="true">*</span></label>
+                  <select id="uf" name="uf" required autocomplete="address-level1">
+                    <option value="">Selecione</option>
+                    <option value="AC">Acre (AC)</option>
+                    <option value="AL">Alagoas (AL)</option>
+                    <option value="AP">Amapá (AP)</option>
+                    <option value="AM">Amazonas (AM)</option>
+                    <option value="BA">Bahia (BA)</option>
+                    <option value="CE">Ceará (CE)</option>
+                    <option value="DF">Distrito Federal (DF)</option>
+                    <option value="ES">Espírito Santo (ES)</option>
+                    <option value="GO">Goiás (GO)</option>
+                    <option value="MA">Maranhão (MA)</option>
+                    <option value="MT">Mato Grosso (MT)</option>
+                    <option value="MS">Mato Grosso do Sul (MS)</option>
+                    <option value="MG">Minas Gerais (MG)</option>
+                    <option value="PA">Pará (PA)</option>
+                    <option value="PB">Paraíba (PB)</option>
+                    <option value="PR">Paraná (PR)</option>
+                    <option value="PE">Pernambuco (PE)</option>
+                    <option value="PI">Piauí (PI)</option>
+                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                    <option value="RN">Rio Grande do Norte (RN)</option>
+                    <option value="RS">Rio Grande do Sul (RS)</option>
+                    <option value="RO">Rondônia (RO)</option>
+                    <option value="RR">Roraima (RR)</option>
+                    <option value="SC">Santa Catarina (SC)</option>
+                    <option value="SP">São Paulo (SP)</option>
+                    <option value="SE">Sergipe (SE)</option>
+                    <option value="TO">Tocantins (TO)</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="field col-6">
+              <label for="mensagem">Mensagem <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <textarea id="mensagem" name="mensagem" rows="6" required minlength="10" maxlength="1000"></textarea>
+            </div>
+
+            <div class="field col-6">
+              <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+              <p id="envio-status" class="form-status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipe -->
+    <section class="section section-alt" aria-labelledby="equipe-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="equipe-heading">Equipe NEXT HTML</h2>
+          <p>Estudantes do Curso Superior de Informática da UNICID responsáveis pelo projeto.</p>
+        </div>
+
+        <ul class="cards-grid equipe-lista">
+          <li class="card">
+            <h3>Felipe Fragoso</h3>
+            <p>Escopo do projeto, página inicial e página de Contato</p>
+          </li>
+          <li class="card">
+            <h3>Breno Oliveira da Silva</h3>
+            <p>Páginas Sobre e Projetos</p>
+          </li>
+          <li class="card">
+            <h3>Gustavo Mariano Carvalho</h3>
+            <p>Páginas Impacto e Acessibilidade</p>
+          </li>
+          <li class="card">
+            <h3>Jihady Nikuluz Cardoso</h3>
+            <p>Páginas Galeria e Mídia</p>
+          </li>
+          <li class="card">
+            <h3>Kaue Cândido Alberti</h3>
+            <p>Página de Notícias, orçamento de hospedagem e documentação</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <p class="footer-logo">Elo Solidário</p>
+        <p>
+          Trabalho acadêmico da equipe NEXT HTML para a disciplina de Front-End, Curso Superior de
+          Informática — UNICID.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links principais do rodapé">
+        <h2 class="footer-heading">Navegação</h2>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2 class="footer-heading">Acessibilidade</h2>
+        <p>Este site segue boas práticas de acessibilidade digital, pensadas para pessoas com deficiência.</p>
+        <a href="acessibilidade.html">Saiba mais sobre acessibilidade</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Elo Solidário — Projeto acadêmico sem fins comerciais.</p>
+    </div>
+  </footer>
+</body>
+</html>

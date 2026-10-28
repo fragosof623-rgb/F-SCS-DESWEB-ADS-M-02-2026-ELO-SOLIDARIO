@@ -113,6 +113,7 @@ a:hover {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 3px;
@@ -435,10 +436,205 @@ textarea:focus-visible {
   text-align: center;
 }
 
-/* ---------- 11. Responsividade ---------- */
+/* ---------- 11. Página de contato e formulário ---------- */
+.page-hero {
+  background: linear-gradient(160deg, var(--color-green-dark) 0%, var(--color-green) 100%);
+  color: #ffffff;
+  padding-block: var(--space-4);
+}
+
+.page-hero h1 {
+  color: #ffffff;
+  margin-bottom: var(--space-1);
+}
+
+.page-hero p {
+  color: #eaf2ec;
+  font-size: 1.1rem;
+  max-width: 40rem;
+  margin-bottom: 0;
+}
+
+.contato-layout {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.contato-info,
+.form-contato {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.contato-info address {
+  font-style: normal;
+}
+
+.contato-info dl {
+  margin: 0 0 var(--space-2);
+}
+
+.contato-info dt {
+  font-weight: 600;
+  color: var(--color-green-dark);
+}
+
+.contato-info dd {
+  margin: 0 0 var(--space-2);
+  overflow-wrap: anywhere;
+}
+
+.nota-ficticia {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: 1fr;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.field label {
+  font-weight: 600;
+}
+
+.obrigatorio {
+  color: var(--color-terracota);
+}
+
+.form-contato input,
+.form-contato select,
+.form-contato textarea {
+  width: 100%;
+  min-height: 44px;
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-text-muted); /* contraste 3:1+ exigido para bordas de campos */
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.8rem;
+}
+
+.form-contato textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.form-contato input:focus-visible,
+.form-contato select:focus-visible,
+.form-contato textarea:focus-visible {
+  border-color: var(--color-green);
+  border-radius: 0.5rem;
+}
+
+.form-contato input[aria-invalid="true"] {
+  border-color: var(--color-terracota);
+  border-width: 3px;
+}
+
+.form-contato .btn {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.form-fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  margin: 0;
+  min-width: 0;
+}
+
+.form-fieldset legend {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-green-dark);
+  padding-inline: var(--space-1);
+}
+
+.field-hint {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.form-status {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status--carregando {
+  color: var(--color-green);
+  font-style: italic;
+}
+
+.form-status--sucesso {
+  color: var(--color-green);
+  border-left: 4px solid var(--color-green);
+  padding-left: var(--space-1);
+}
+
+.form-status--erro {
+  color: var(--color-terracota);
+  font-weight: 600;
+  border-left: 4px solid var(--color-terracota);
+  padding-left: var(--space-1);
+}
+
+.fonte-cep {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.equipe-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 12. Responsividade ---------- */
 @media (min-width: 600px) {
   .footer-inner {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Formulário em 6 colunas; no celular, um campo por linha */
+  .form-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .col-2 {
+    grid-column: span 2;
+  }
+
+  .col-3 {
+    grid-column: span 3;
+  }
+
+  .col-4 {
+    grid-column: span 4;
+  }
+
+  .col-6 {
+    grid-column: 1 / -1;
   }
 }
 
@@ -449,6 +645,12 @@ textarea:focus-visible {
 
   .hero-art {
     justify-self: end;
+  }
+}
+
+@media (min-width: 1000px) {
+  .contato-layout {
+    grid-template-columns: 1fr 2.2fr;
   }
 }
 

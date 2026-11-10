@@ -7,7 +7,7 @@ familiares e artesãos geram renda e impacto social por meio da cooperação, da
 São 10 páginas acessíveis, pensadas primeiro para pessoas com deficiência, mais o assistente de IA **EcoBot**,
 que responde dúvidas sobre o tema. Todo dado, imagem, vídeo ou notícia de terceiros tem fonte real indicada.
 
-Site no ar: [inserir link do Railway]
+Site no ar: https://f-scs-desweb-ads-m-02-2026-elo-solidario-production.up.railway.app
 
 ## Equipe NEXT HTML
 

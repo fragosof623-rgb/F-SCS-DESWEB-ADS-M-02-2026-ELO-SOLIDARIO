@@ -68,7 +68,7 @@ O site terá **10 páginas HTML interligadas** por um menu de navegação princi
 | 9 | `contato.html` | Formulário de contato validado, dados fictícios e membros da equipe |
 | 10 | `orcamento_hospedagem.html` | Comparativo de hospedagem e domínio para publicação do site |
 
-Funcionalidades transversais previstas: formulário de contato com validação HTML5 (`contato.html`), galeria de imagens com legendas (`galeria.html`), seção de mídia com vídeo/áudio/iframe (`midia.html`), listagem de notícias (`noticias.html`) e navegação principal idêntica em todas as páginas.
+Funcionalidades transversais previstas: formulário de contato com validação HTML5, incluindo campos de data e de número e busca de endereço pelo CEP (`contato.html`), galeria de imagens com legendas (`galeria.html`), seção de mídia com vídeo/áudio/iframe (`midia.html`), listagem de notícias (`noticias.html`) e navegação principal idêntica em todas as páginas.
 
 ---
 
@@ -171,7 +171,7 @@ Ferramenta de gestão sugerida: [Trello/Notion/Google Sheets — a definir pela 
 O site será considerado pronto quando:
 
 - As 10 páginas HTML estiverem criadas, interligadas e navegáveis a partir do menu principal.
-- O formulário de contato estiver funcional e validado com atributos HTML5 (`required`, `email`, `tel`, `pattern`, `<label for>`).
+- O formulário de contato estiver funcional e validado com atributos HTML5 (`required`, `email`, `tel`, `date`, `number`, `pattern`, `<label for>`).
 - Todas as páginas usarem HTML5 semântico (`header`, `nav`, `main`, `section`, `article`, `footer`) e hierarquia correta de títulos.
 - As boas práticas de acessibilidade estiverem aplicadas (contraste, teclado, `alt`, ARIA quando necessário) em todas as páginas.
 - O layout responder corretamente em celular, tablet e desktop.

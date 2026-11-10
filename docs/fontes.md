@@ -81,3 +81,15 @@ Data da consulta: 09/11/2026. Valores copiados das páginas oficiais; promoçõe
 | Netlify | Free US$ 0 (300 créditos); Personal US$ 9/mês; Pro US$ 20/mês | Funções sob demanda | https://www.netlify.com/pricing/ |
 | GitHub Pages | Preço não informado nas páginas consultadas; 1 GB por site, 100 GB/mês de banda | Não (só estático) | https://docs.github.com/pt/pages/getting-started-with-github-pages/github-pages-limits |
 | Registro.br | Domínio .com.br: R$ 40,00 por ano (texto da própria página oficial) | — | https://registro.br/dominio/precos/ |
+
+## midia.html — Vídeo hospedado no site (elemento `<video>`)
+
+Data da consulta: 09/11/2026.
+
+| Mídia | Fonte (instituição/autor, título) | Licença | Link |
+|---|---|---|---|
+| Vídeo `public/video/coleta-seletiva-cooperativas.webm` (versão 480p gerada pelo Wikimedia Commons, 1min34s) | Senado Federal (TV Senado), "Coleta Seletiva - cooperativas dão dicas para a separação do lixo", 24/08/2018 | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:Coleta_Seletiva_-_cooperativas_d%C3%A3o_dicas_para_a_separa%C3%A7%C3%A3o_do_lixo.webm |
+| Poster `public/img/poster-coleta-seletiva.webp` | Quadro do mesmo vídeo (miniatura gerada pelo Wikimedia Commons) | CC BY 3.0 | mesmo link acima |
+| Reportagem citada no resumo | Agência Senado, especial sobre coleta seletiva (2018) | — | https://www12.senado.leg.br/noticias/infograficos/2018/08/ofensiva-contra-o-lixo-brasileiros-sao-chamados-a-separar-residuos-solidos-e-reciclar |
+
+O vídeo não tem legendas publicadas no Wikimedia Commons; por isso a página traz um resumo em texto escrito pela equipe.

@@ -17,7 +17,8 @@
   --color-text: #26332c;         /* texto padrão */
   --color-text-muted: #55635a;   /* texto secundário */
   --color-border: #e1d9c8;       /* bordas suaves */
-  --color-focus: #c98a1d;        /* cor do contorno de foco */
+  --color-focus: #1f4a34;        /* anel externo do foco (contraste 3:1+ sobre fundos claros) */
+  --color-focus-interno: #ffffff; /* anel interno do foco (contraste 3:1+ sobre o verde-escuro e os botões dourados) */
 
   /* Tipografia */
   --font-heading: "Poppins", "Segoe UI", Arial, sans-serif;
@@ -115,8 +116,10 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
+  /* Foco em dois tons: o anel branco aparece sobre fundos escuros e o verde-escuro sobre fundos claros */
   outline: 3px solid var(--color-focus);
   outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--color-focus-interno);
   border-radius: 2px;
 }
 
@@ -425,6 +428,16 @@ textarea:focus-visible {
   text-decoration: underline;
 }
 
+/* Links soltos nas colunas do rodapé: texto claro sobre o verde-escuro (contraste WCAG AA) */
+.footer-col a {
+  color: #eaf2ec;
+  font-size: 0.95rem;
+}
+
+.footer-col a:hover {
+  color: var(--color-gold);
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-block: var(--space-2);
@@ -642,6 +655,7 @@ textarea:focus-visible {
 }
 
 .tabela-wrapper {
+  position: relative; /* mantém textos .visually-hidden da tabela dentro da área com rolagem */
   overflow-x: auto;
   margin-bottom: var(--space-3);
 }
@@ -1060,4 +1074,11 @@ kbd {
   font-weight: 500;
   font-size: 0.85rem;
   color: var(--color-terracota);
+}
+
+.midia-figura video {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-green-dark);
+  border-radius: var(--radius);
 }

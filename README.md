@@ -46,11 +46,23 @@ Acesse http://localhost:3000.
 
 | Pasta/arquivo | O que tem |
 |---|---|
-| `public/` | As 10 páginas HTML, `css/`, `js/` e `img/` |
+| `public/` | As 10 páginas HTML, `css/`, `js/`, `img/` e `video/` |
 | `server.js` | Servidor Express (site + rota `POST /api/chat`) |
 | `lib/ia.js` | Integração com a API do Claude |
-| `docs/` | Escopo, plano de contexto e fontes do projeto |
+| `docs/` | Escopo, diário de bordo, orçamento, testes, fontes e evidências (ver "Documentação") |
 | `.cursor/` e `CLAUDE.md` | Regras do projeto para ferramentas de IA |
+
+## Documentação
+
+| Documento | Conteúdo |
+|---|---|
+| [Escopo do projeto](docs/escopo-projeto.md) | Objetivos, público, páginas, tecnologias e cronograma (também em [.docx](docs/escopo-projeto.docx) e [.pdf](docs/escopo-projeto.pdf)) |
+| [Diário de bordo](docs/diario-de-bordo.md) | Registro cronológico do desenvolvimento, decisões e dificuldades |
+| [Orçamento de hospedagem](docs/orcamento.md) | Comparativo de hospedagem e domínio, com fontes, datas de consulta e recomendação |
+| [Testes](docs/testes.md) | Plano e resultados: W3C, teclado, contraste, leitor de tela, responsividade, formulário, links e EcoBot |
+| [Fontes](docs/fontes.md) | Origem de todo conteúdo de terceiros, com links e datas de consulta |
+| [Evidências](docs/evidencias/) | Capturas e relatórios do validador W3C das 10 páginas e capturas de responsividade |
+| [Plano e contexto](docs/plano-contexto.md) | Referência rápida do projeto, do EcoBot e do deploy |
 
 ## Fontes
 

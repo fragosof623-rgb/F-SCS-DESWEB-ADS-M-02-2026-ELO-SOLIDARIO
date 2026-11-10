@@ -1,0 +1,88 @@
+{
+  "cssvalidation" : {
+     "uri"       : "style.css",
+     "checkedby" : "http://www.w3.org/2005/07/css-validator",
+     "csslevel"  : "css3",
+     "date"      : "2026-11-10T03:33:16Z",
+     "timestamp" : "1794281596928",
+     "validity"  : true,
+     "result"    : {
+		"errorcount"   : 0,
+		"warningcount" : 9
+                   }
+       ,
+     "warnings"   : [
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 63,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 67,
+         "message" :  "\u201C-webkit-font-smoothing\u201D is a vendor extension",
+         "type"    :  "vendor-extension",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 79,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 151,
+         "message" :  "The property \u201Cclip\u201D is deprecated",
+         "type"    :  "deprecatedproperty",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 204,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 291,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 393,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 576,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+     ,
+      {
+         "source"  : "file://localhost/style.css",
+         "line"    : 748,
+         "message" :  "Due to their dynamic nature, CSS variables are currently not statically checked",
+         "type"    :  "css-variable",
+         "level"   : 0
+      }
+                     ]
+    }
+}

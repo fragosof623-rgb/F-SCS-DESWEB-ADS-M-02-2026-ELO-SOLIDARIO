@@ -28,7 +28,7 @@ coleta dados pessoais.
 |---|---|---|
 | `index.html` | Resumo do tema e apresentação do projeto | Felipe Fragoso |
 | `sobre.html` | História, missão, visão e valores | Breno Oliveira da Silva |
-| `projetos.html` | Tipos de iniciativas de economia solidária | Breno Oliveira da Silva |
+| `projetos.html` | Iniciativas brasileiras reais e tipos de iniciativas de economia solidária | Breno Oliveira da Silva |
 | `impacto.html` | Impactos social, econômico e ambiental, com dados e fontes | Gustavo Mariano Carvalho |
 | `acessibilidade.html` | Medidas de acessibilidade do site | Gustavo Mariano Carvalho |
 | `galeria.html` | Imagens com legenda, descrição e fonte | Jihady Nikuluz Cardoso |
@@ -37,7 +37,9 @@ coleta dados pessoais.
 | `contato.html` | Formulário validado, busca de CEP (ViaCEP), equipe | Felipe Fragoso |
 | `orcamento_hospedagem.html` | Comparativo de hospedagem e domínio | Kaue Cândido Alberti |
 
-Páginas com conteúdo pendente exibem um aviso "Página em construção" indicando o responsável.
+As 10 páginas estão concluídas (09/11/2026) e passam no W3C Validator sem erros. As fontes de todo conteúdo
+de terceiros, com links e datas de consulta, estão em [`fontes.md`](fontes.md); ao acrescentar conteúdo novo,
+registre a fonte lá também. As imagens ficam em `public/img/` em WebP, com no máximo 1000 px de largura.
 **Nenhum dado, número, notícia ou imagem de terceiros pode ser publicado sem fonte real e identificável.**
 
 ## 4. EcoBot
@@ -70,7 +72,7 @@ Assistente de IA disponível em todas as páginas (botão "Falar com o EcoBot", 
 ├── .cursor/rules/*.mdc   regras do projeto para a IA do Cursor
 ├── .cursor/mcp.json      servidores MCP do Cursor (sem tokens)
 ├── CLAUDE.md             regras para o Claude Code
-├── docs/                 escopo, plano e documentação
+├── docs/                 escopo, plano, fontes (fontes.md) e documentação
 ├── lib/ia.js             integração com a API de IA
 ├── public/               tudo que o navegador recebe (10 páginas, css/, js/, img/)
 ├── server.js             servidor Express (site estático + /api/chat)

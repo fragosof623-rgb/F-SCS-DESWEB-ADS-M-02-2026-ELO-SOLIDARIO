@@ -120,7 +120,7 @@ index.html (Início)
 
 **Logotipo:** nesta etapa, o logotipo é textual (nome do projeto + ícone simples em SVG, sem uso de imagens externas), garantindo leveza e fácil substituição quando a equipe definir a identidade visual final.
 
-**Fontes de imagens e textos:** todos os textos desta entrega são de autoria da equipe, escritos especificamente para o projeto acadêmico. Nenhuma estatística, dado numérico ou citação de terceiros foi inventado. Elementos gráficos do `index.html` são ilustrações vetoriais (SVG) criadas para o projeto, não fotografias. **Nas próximas páginas**, sempre que forem utilizadas imagens, dados, notícias ou citações de terceiros, será obrigatório indicar a fonte real e identificável (autor, instituição, link ou publicação), conforme exigido pela atividade.
+**Fontes de imagens e textos:** todos os textos desta entrega são de autoria da equipe, escritos especificamente para o projeto acadêmico. Nenhuma estatística, dado numérico ou citação de terceiros foi inventado. Elementos gráficos do `index.html` são ilustrações vetoriais (SVG) criadas para o projeto, não fotografias. Nas demais páginas, todas as imagens, dados, notícias e citações de terceiros indicam a fonte real e identificável (autor, instituição, link ou publicação), conforme exigido pela atividade. A lista completa, com as datas de consulta, está em [`fontes.md`](fontes.md).
 
 ---
 
@@ -139,15 +139,15 @@ index.html (Início)
 
 ## 10. Cronograma e Divisão de Tarefas
 
-| Etapa | Entrega | Responsável | Data prevista |
-|---|---|---|---|
-| 1 | Escopo do projeto + `index.html` | Felipe Fragoso | 22/09/2026 |
-| 2 | `sobre.html` + `projetos.html` | Breno Oliveira da Silva | [DATA] |
-| 3 | `impacto.html` + `acessibilidade.html` | Gustavo Mariano Carvalho | [DATA] |
-| 4 | `galeria.html` + `midia.html` | Jihady Nikuluz Cardoso | [DATA] |
-| 5 | `noticias.html` + `contato.html` | Kaue Cândido Alberti (`noticias.html`) e Felipe Fragoso (`contato.html`) | [DATA] |
-| 6 | `orcamento_hospedagem.html` + documentação `/docs` | Kaue Cândido Alberti | [DATA] |
-| 7 | Validação W3C, testes de acessibilidade, ajustes finais e empacotamento (.zip) | Toda a equipe | [DATA] |
+| Etapa | Entrega | Responsável | Data | Situação |
+|---|---|---|---|---|
+| 1 | Escopo do projeto + `index.html` | Felipe Fragoso | 22/09/2026 | ✅ Concluída |
+| 2 | `sobre.html` + `projetos.html` | Breno Oliveira da Silva | 09/11/2026 | ✅ Concluída |
+| 3 | `impacto.html` + `acessibilidade.html` | Gustavo Mariano Carvalho | 09/11/2026 | ✅ Concluída |
+| 4 | `galeria.html` + `midia.html` | Jihady Nikuluz Cardoso | 09/11/2026 | ✅ Concluída |
+| 5 | `noticias.html` + `contato.html` | Kaue Cândido Alberti (`noticias.html`) e Felipe Fragoso (`contato.html`) | 09/11/2026 | ✅ Concluída |
+| 6 | `orcamento_hospedagem.html` + documentação `/docs` (inclui `docs/fontes.md`) | Kaue Cândido Alberti | 09/11/2026 | ✅ Concluída |
+| 7 | Validação W3C, testes de acessibilidade, ajustes finais e empacotamento (.zip) | Toda a equipe | 09/11/2026 | ✅ Concluída (as 10 páginas passaram no W3C Validator sem erros; o .zip é gerado pela equipe na entrega) |
 
 *Divisão sugerida pela ordem da lista de integrantes. Com a saída de um integrante, a etapa 5 foi dividida entre Kaue Cândido Alberti e Felipe Fragoso — a equipe pode reorganizar conforme disponibilidade de cada um.*
 

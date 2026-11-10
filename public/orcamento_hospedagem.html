@@ -59,10 +59,6 @@
 
     <section class="section" aria-labelledby="atual-heading">
       <div class="container conteudo-texto">
-        <div class="aviso-construcao" role="note">
-          <p><strong>Página em construção.</strong> Os valores de cada plano serão pesquisados nos sites oficiais e inseridos com a data da consulta.</p>
-          <p>Responsável pela versão final: Kaue Cândido Alberti.</p>
-        </div>
         <h2 id="atual-heading">Como o site está publicado hoje</h2>
         <p>
           O código fica no GitHub e é publicado no Railway. Como o site tem um servidor Node.js (que faz o
@@ -76,46 +72,102 @@
       <div class="container">
         <div class="section-header">
           <h2 id="comparativo-heading">Comparativo de hospedagem</h2>
+          <p>
+            Preços conferidos nos sites oficiais em 09/11/2026. Serviços estrangeiros cobram em dólar (US$) e o
+            valor em reais depende do câmbio do dia. Promoções e preços podem mudar a qualquer momento.
+          </p>
         </div>
 
         <div class="tabela-wrapper">
-          <table class="tabela">
-            <caption>Opções de hospedagem avaliadas</caption>
+          <table class="tabela tabela-hospedagem">
+            <caption>Opções de hospedagem avaliadas (consulta em 09/11/2026)</caption>
             <thead>
               <tr>
-                <th scope="col">Serviço</th>
+                <th scope="col">Serviço e plano</th>
+                <th scope="col">Preço</th>
+                <th scope="col">O que inclui</th>
                 <th scope="col">Roda o servidor Node (EcoBot)?</th>
-                <th scope="col">Custo</th>
-                <th scope="col">Observação</th>
+                <th scope="col">Fonte</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Railway</td>
-                <td>Sim</td>
-                <td>A pesquisar</td>
-                <td>Opção usada hoje; publica a partir do GitHub.</td>
+                <th scope="row">Railway — Hobby <span class="destaque-tabela">(usado hoje)</span></th>
+                <td>US$ 5 por mês</td>
+                <td>US$ 5 de crédito de uso por mês; até 48 vCPU e 48 GB por serviço; 2 domínios próprios. Uso acima do crédito é cobrado à parte.</td>
+                <td>Sim, servidor Node sempre ligado, publicado a partir do GitHub.</td>
+                <td><a href="https://railway.com/pricing" target="_blank" rel="noopener">railway.com/pricing<span class="visually-hidden"> (abre em nova aba)</span></a></td>
               </tr>
               <tr>
-                <td>Render</td>
-                <td>Sim</td>
-                <td>A pesquisar</td>
-                <td>Também publica a partir do GitHub.</td>
+                <th scope="row">Railway — Free</th>
+                <td>US$ 0</td>
+                <td>US$ 1 de crédito de uso por mês; até 1 vCPU e 0,5 GB; nenhum domínio próprio.</td>
+                <td>Sim, com recursos bem limitados.</td>
+                <td><a href="https://railway.com/pricing" target="_blank" rel="noopener">railway.com/pricing<span class="visually-hidden"> (abre em nova aba)</span></a></td>
               </tr>
               <tr>
-                <td>GitHub Pages</td>
-                <td>Não</td>
-                <td>A pesquisar</td>
-                <td>Só arquivos estáticos: o site abriria, mas o EcoBot não funcionaria.</td>
+                <th scope="row">Render — Free</th>
+                <td>US$ 0</td>
+                <td>0,1 CPU e 512 MB; 750 horas por mês. O serviço “dorme” após 15 minutos sem acesso e leva cerca de 1 minuto para voltar.</td>
+                <td>Sim (Node.js com Express), mas a primeira resposta pode demorar.</td>
+                <td><a href="https://render.com/docs/free" target="_blank" rel="noopener">render.com/docs/free<span class="visually-hidden"> (abre em nova aba)</span></a></td>
+              </tr>
+              <tr>
+                <th scope="row">Hostinger — VPS KVM 1</th>
+                <td>R$ 29,99 por mês no contrato de 24 meses (R$ 719,76 no total); renova por R$ 59,99 por mês</td>
+                <td>1 vCPU, 4 GB de RAM, 50 GB de disco NVMe, 4 TB de banda e domínio grátis por 1 ano. Servidor administrado pela própria equipe.</td>
+                <td>Sim, com instalação de Node.js pelo painel.</td>
+                <td><a href="https://www.hostinger.com/br/vps" target="_blank" rel="noopener">hostinger.com/br/vps<span class="visually-hidden"> (abre em nova aba)</span></a></td>
+              </tr>
+              <tr>
+                <th scope="row">Vercel — Hobby</th>
+                <td>US$ 0 (Pro: US$ 20 por mês)</td>
+                <td>100 GB de transferência e 1 milhão de execuções de funções por mês. Só para uso pessoal e não comercial.</td>
+                <td>Não como servidor contínuo: o código roda em funções sob demanda, e o servidor teria de ser adaptado.</td>
+                <td><a href="https://vercel.com/pricing" target="_blank" rel="noopener">vercel.com/pricing<span class="visually-hidden"> (abre em nova aba)</span></a></td>
+              </tr>
+              <tr>
+                <th scope="row">Netlify — Free</th>
+                <td>US$ 0 (Personal: US$ 9 por mês)</td>
+                <td>300 créditos por mês para publicações, funções e banda; CDN global.</td>
+                <td>Não como servidor contínuo: oferece funções, e o servidor teria de ser adaptado.</td>
+                <td><a href="https://www.netlify.com/pricing/" target="_blank" rel="noopener">netlify.com/pricing<span class="visually-hidden"> (abre em nova aba)</span></a></td>
+              </tr>
+              <tr>
+                <th scope="row">GitHub Pages</th>
+                <td>Preço não informado na documentação consultada</td>
+                <td>Site de até 1 GB e limite flexível de 100 GB de banda por mês. Não é indicado para sites comerciais.</td>
+                <td>Não: hospeda só arquivos estáticos. O site abriria, mas o EcoBot não funcionaria.</td>
+                <td><a href="https://docs.github.com/pt/pages/getting-started-with-github-pages/github-pages-limits" target="_blank" rel="noopener">Limites do GitHub Pages<span class="visually-hidden"> (abre em nova aba)</span></a></td>
               </tr>
             </tbody>
           </table>
         </div>
+      </div>
+    </section>
 
+    <section class="section" aria-labelledby="dominio-heading">
+      <div class="container conteudo-texto">
         <h2 id="dominio-heading">Domínio</h2>
         <p>
-          Um endereço próprio terminado em .br é registrado no Registro.br. O valor anual será consultado no
-          site oficial e incluído aqui.
+          Um endereço próprio terminado em .com.br é registrado no Registro.br, que cobra
+          <strong>R$ 40,00 por ano</strong> (consulta em 09/11/2026, na
+          <a href="https://registro.br/dominio/precos/" target="_blank" rel="noopener">página de preços do Registro.br<span class="visually-hidden"> (abre em nova aba)</span></a>).
+          O registro exige CPF ou CNPJ. Sem domínio próprio, o site continua no ar no endereço gratuito que o Railway fornece.
+        </p>
+
+        <h2 id="recomendacao-heading">Nossa recomendação</h2>
+        <p>
+          <strong>Manter o Railway no plano Hobby (US$ 5 por mês).</strong> Ele executa o servidor Node o tempo
+          todo, então o EcoBot responde na hora, e publica sozinho a cada envio ao GitHub, sem precisar administrar
+          um servidor. O crédito de uso incluído tende a cobrir um site pequeno como o nosso; o consumo deve ser
+          acompanhado no painel. O plano Free do Railway e o do Render servem para testes, mas o Render “dorme”
+          sem acessos, e o Railway Free tem pouca memória e não aceita domínio próprio.
+        </p>
+        <p>
+          A VPS da Hostinger também roda Node e cobra em reais, mas exige configurar e manter o servidor. Vercel,
+          Netlify e GitHub Pages pediriam mudanças no projeto ou deixariam o EcoBot fora do ar. Se a equipe quiser
+          um endereço próprio, o domínio .com.br acrescenta R$ 40,00 por ano.
         </p>
       </div>
     </section>

@@ -109,3 +109,44 @@ como indica a linha `Co-Authored-By` de cada commit.
     pequenas: os textos ocultos da tabela escapavam da área com rolagem.
   - **Evidências.** As capturas de tela do validador foram geradas com o navegador. Os relatórios JSON do
     próprio validador também foram salvos, como evidência complementar.
+
+## 16/11/2026 — Conteúdos da Aula 07 (JavaScript)
+
+- **O que foi feito:**
+  - **Exemplo da equipe.** O exemplo "Teste Local Storage JS" foi movido para
+    `public/exemplos/teste-local-storage/` (arquivos `scriptstorage.html` e `scriptstorage.js`) e abre no site
+    em `/exemplos/teste-local-storage/scriptstorage.html`. A lógica não mudou; o HTML ganhou só um `<title>`
+    descritivo, `lang="pt-BR"` e `<label for>` nos dois campos, para passar no W3C.
+  - **Rascunho no formulário de contato (`public/js/rascunho.js`).** Nome, e-mail, telefone e mensagem são
+    salvos no localStorage a cada digitação e recuperados quando a página abre de novo, como no exemplo da
+    aula. Um envio válido não apaga os dados; só o novo botão "Limpar dados" apaga (`removeItem`). Os avisos
+    "Rascunho recuperado" e "Dados apagados" aparecem numa área `aria-live`. CEP, endereço, data e número de
+    participantes não são salvos.
+  - **Validação com JavaScript (`public/js/formulario.js`).** No envio: `preventDefault`, limpeza dos erros
+    antigos e conferência de cada campo (nome com `trim`, e-mail com "@" e ".", telefone por expressão
+    regular, mensagem com pelo menos 10 caracteres, que é a atividade da seção 11 da aula, além de CEP,
+    endereço, data e quantidade). Cada erro aparece em vermelho logo abaixo do campo, com `aria-invalid`,
+    `aria-describedby` e borda vermelha, e o foco vai para o primeiro campo com erro.
+  - **Controles de mídia (`public/js/midia.js`).** O vídeo da TV Senado ganhou botões próprios:
+    reproduzir/pausar, pular para 1:30 (desafio do Projeto A2) e diminuir/aumentar o volume. Abaixo do vídeo
+    do YouTube entrou o botão "Já assisti ao vídeo".
+  - **Documentação.** Foram atualizados a seção 9 do escopo (com o `.docx` e o `.pdf` gerados de novo), o
+    `testes.md` (nova seção 10, com os testes executados), este diário e o README. Foram criados o roteiro
+    da apresentação (`roteiro-apresentacao.md`) e o checklist da A2 (`checklist-a2.md`).
+- **Responsável:** Felipe Fragoso (envio pelo Git, com apoio do Claude Code). O exemplo de localStorage é da
+  equipe.
+- **Dificuldades e decisões:**
+  - **Envio e limpeza do formulário.** Antes, `cep.js` limpava o formulário depois do envio (`form.reset()`),
+    o que apagaria o rascunho. O envio passou para `formulario.js`, que não limpa nada. O `cep.js` agora só
+    cancela a consulta ao ViaCEP quando a pessoa clica em "Limpar dados".
+  - **`novalidate`.** Sem ele, as bolhas do navegador apareceriam antes das mensagens do JavaScript. Os
+    atributos HTML5 (`required`, `pattern`, `minlength`) continuam no código.
+  - **Defeito encontrado.** O código antigo dos campos de data e quantidade chamava `checkValidity()` dentro
+    do próprio evento `invalid`. Isso pode disparar o evento de novo, sem fim. Com `novalidate` esses ouvintes
+    deixaram de ser necessários e foram removidos; a validação agora usa `validity` diretamente.
+  - **Cor de erro.** O erro usava a cor terracota. Foi criada a variável `--color-erro` (`#b3261e`), um
+    vermelho com contraste de 6,17:1 sobre o fundo do site (mínimo AA: 4,5:1).
+  - **Telefone.** O `pattern` do HTML foi ajustado para a mesma regra da expressão regular do JavaScript:
+    DDD entre parênteses e hífen, por exemplo (11) 91234-5678.
+  - **`alert()` no exemplo.** O exemplo da equipe usa `alert()`. Ele foi mantido sem mudar a lógica, mas o
+    site em si não usa `alert()`: as mensagens aparecem na página.

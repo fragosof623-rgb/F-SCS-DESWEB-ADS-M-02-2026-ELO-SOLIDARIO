@@ -1,14 +1,15 @@
 # Plano e resultados de testes — Elo Solidário
 
 Este documento reúne o plano de testes do site e os resultados obtidos. Todos os testes abaixo foram
-**executados de verdade** entre 09/11/2026 e 10/11/2026, no servidor local (`npm run dev`,
+**executados de verdade** entre 09/11/2026 e 10/11/2026 e, para os recursos de JavaScript da Aula 07
+(seção 10), em 16/11/2026, no servidor local (`npm run dev`,
 http://localhost:3000), com o Google Chrome no Windows 11. As evidências ficam em [`evidencias/`](evidencias/).
 
 Resumo:
 
 | Área | Resultado |
 |---|---|
-| Validação W3C (10 páginas) | ✅ 0 erros e 0 avisos em todas |
+| Validação W3C (10 páginas + exemplo de localStorage) | ✅ 0 erros e 0 avisos em todas |
 | Navegação por teclado | ✅ Aprovado |
 | Contraste (WCAG AA) | ✅ Aprovado, depois de 2 correções feitas durante os testes |
 | Leitor de tela (estrutura semântica) | ✅ Aprovado na verificação automática; teste manual com NVDA ainda pendente |
@@ -16,6 +17,7 @@ Resumo:
 | Formulário de contato | ✅ Aprovado (casos válidos e inválidos) |
 | Links | ✅ Aprovado |
 | EcoBot | ✅ Interface e validações aprovadas; resposta da IA não testada localmente (sem chave) |
+| JavaScript da Aula 07 (localStorage, validação JS, controles de mídia) | ✅ Aprovado (seção 10) |
 
 ---
 
@@ -26,7 +28,9 @@ Resumo:
 - **Como:** o código de cada página foi enviado ao validador pela opção "text input".
 - **Data:** 09/11/2026, entre 23h30 e 23h58. Em 10/11/2026, `midia.html` foi validada de novo depois de
   uma pequena mudança de texto (a lista "Como a mídia é publicada"). As outras páginas não mudaram desde
-  então; só o CSS foi ajustado.
+  então; só o CSS foi ajustado. Em **16/11/2026**, depois das mudanças da Aula 07, `contato.html`,
+  `midia.html` e o exemplo `exemplos/teste-local-storage/scriptstorage.html` foram validados de novo
+  (versão `vnu 26.11.14`), e as capturas e os relatórios JSON dessas páginas foram substituídos.
 - **Evidências:** uma captura de tela da página de resultado por página (`w3c-<página>.png`) e o relatório
   completo do validador em JSON (`w3c-<página>.json`, gerado com `?out=json`).
 
@@ -38,19 +42,21 @@ Resumo:
 | `impacto.html` | 0 | 0 | 8 | [w3c-impacto.png](evidencias/w3c-impacto.png) | [JSON](evidencias/w3c-impacto.json) |
 | `acessibilidade.html` | 0 | 0 | 8 | [w3c-acessibilidade.png](evidencias/w3c-acessibilidade.png) | [JSON](evidencias/w3c-acessibilidade.json) |
 | `galeria.html` | 0 | 0 | 16 | [w3c-galeria.png](evidencias/w3c-galeria.png) | [JSON](evidencias/w3c-galeria.json) |
-| `midia.html` | 0 | 0 | 10 | [w3c-midia.png](evidencias/w3c-midia.png) | [JSON](evidencias/w3c-midia.json) |
+| `midia.html` (16/11) | 0 | 0 | 10 | [w3c-midia.png](evidencias/w3c-midia.png) | [JSON](evidencias/w3c-midia.json) |
 | `noticias.html` | 0 | 0 | 8 | [w3c-noticias.png](evidencias/w3c-noticias.png) | [JSON](evidencias/w3c-noticias.json) |
-| `contato.html` | 0 | 0 | 20 | [w3c-contato.png](evidencias/w3c-contato.png) | [JSON](evidencias/w3c-contato.json) |
+| `contato.html` (16/11) | 0 | 0 | 20 | [w3c-contato.png](evidencias/w3c-contato.png) | [JSON](evidencias/w3c-contato.json) |
 | `orcamento_hospedagem.html` | 0 | 0 | 8 | [w3c-orcamento_hospedagem.png](evidencias/w3c-orcamento_hospedagem.png) | [JSON](evidencias/w3c-orcamento_hospedagem.json) |
+| [`exemplos/teste-local-storage/scriptstorage.html`](../public/exemplos/teste-local-storage/scriptstorage.html) (16/11) | 0 | 0 | 0 | [w3c-exemplo-local-storage.png](evidencias/w3c-exemplo-local-storage.png) | [JSON](evidencias/w3c-exemplo-local-storage.json) |
 
 \* As mensagens informativas não são erros nem avisos. São todas do tipo "Trailing slash on void elements
 has no effect": a barra no fim de tags como `<meta ... />` e `<img ... />` é permitida no HTML5 e não muda
 nada.
 
-**Resultado:** ✅ as 10 páginas passaram sem erros e sem avisos.
+**Resultado:** ✅ as 10 páginas e o exemplo passaram sem erros e sem avisos.
 
 **CSS:** o arquivo `public/css/style.css`, já com as correções da seção 3 e da seção 5, foi validado em
-10/11/2026 no W3C CSS Validator (<https://jigsaw.w3.org/css-validator/>, perfil CSS3 + SVG). Resultado:
+10/11/2026 e de novo em 16/11/2026, com os estilos novos da Aula 07, no W3C CSS Validator
+(<https://jigsaw.w3.org/css-validator/>, perfil CSS3 + SVG). Resultado:
 **válido, 0 erros** ([relatório JSON](evidencias/w3c-css.json)). Houve 9 avisos, nenhum de erro:
 
 - 7 avisos dizem que as variáveis CSS não são verificadas estaticamente.
@@ -134,7 +140,7 @@ foco em cada elemento interativo de cada página.
 | `iframe` com `title` | ✅ O vídeo do YouTube em `midia.html` tem `title` descritivo |
 | Vídeo e áudio com descrição em texto | ✅ Resumo ligado por `aria-describedby`; o áudio tem também link para a transcrição completa |
 | Campos do formulário com `<label for>` | ✅ 0 campos sem rótulo; dicas ligadas por `aria-describedby` |
-| Mensagens de erro e de status anunciadas | ✅ `aria-live="polite"` no CEP, na data, no número e no envio (4 áreas), além de `aria-invalid` nos campos com erro |
+| Mensagens de erro e de status anunciadas | ✅ `aria-live="polite"` no CEP, na data, no número e no envio (4 áreas), além de `aria-invalid` nos campos com erro. Em 16/11: mais 9 áreas de erro por campo, a área do rascunho e 2 áreas em `midia.html` (seção 10) |
 | Respostas do EcoBot anunciadas | ✅ Área de mensagens com `aria-live="polite"` |
 | Lighthouse, categoria Acessibilidade | ✅ 100 nas 10 páginas |
 
@@ -192,10 +198,10 @@ exibida e anunciada.
 | CEP incompleto | `0131` | Inválido | ✅ "CEP inválido: digite 8 números, no formato 00000-000." |
 | CEP válido (ViaCEP) | `01310100` | Máscara e endereço preenchidos | ✅ Virou `01310-100` e preencheu Avenida Paulista, Bela Vista, São Paulo/SP |
 | CEP inexistente | `99999-999` | Mensagem de erro | ✅ "CEP não encontrado. Confira o número ou preencha o endereço manualmente." |
-| E-mail inválido | `teste@` | Inválido | ✅ Bloqueado pela validação HTML5 |
-| Telefone inválido | `123` | Inválido (`pattern`) | ✅ Bloqueado |
+| E-mail inválido | `teste@` | Inválido | ✅ Até 10/11 bloqueado pela bolha do HTML5; em 16/11, pela validação JS: "E-mail inválido: use o formato nome@provedor.com." |
+| Telefone inválido | `123` | Inválido (`pattern` + regex no JS) | ✅ "Telefone inválido: use o formato (11) 91234-5678." (16/11) |
 | Enviar vazio | nenhum campo | Bloquear e focar o 1º campo obrigatório | ✅ 9 campos obrigatórios inválidos; foco em "nome" |
-| Enviar completo | todos os campos válidos (data futura, 12 pessoas, CEP 01310-100, número 1000) | Mensagem de sucesso e formulário limpo | ✅ "Obrigado! Sua mensagem foi registrada. (Envio simulado…)", campos limpos e sem mensagens de erro antigas |
+| Enviar completo | todos os campos válidos (data futura, 12 pessoas, CEP 01310-100, número 1000) | Mensagem de sucesso | ✅ "Obrigado! Sua mensagem foi registrada. (Envio simulado…)". **Mudou em 16/11:** o formulário não é mais limpo depois do envio, para manter o rascunho (seção 10.1) |
 
 **Resultado:** ✅ aprovado. O envio é simulado: o site não guarda nem envia dados pessoais.
 
@@ -228,3 +234,77 @@ Em `midia.html`, a categoria "Boas práticas" ficou em 77. O motivo é um cookie
 player do YouTube (`youtube-nocookie.com`) incorporado na página. Esse cookie não é controlado pelo site, e
 o vídeo incorporado foi mantido porque faz parte do conteúdo exigido. As outras 9 páginas tiveram 100 em
 "Boas práticas".
+
+## 10. JavaScript da Aula 07 (16/11/2026)
+
+Executados em 16/11/2026 no servidor local (`npm start`, http://localhost:3000), no Google Chrome
+(perfil isolado, controlado pelo Chrome DevTools). Os campos foram preenchidos por script, disparando os
+eventos `input` e `change`, como acontece quando um usuário digita. Em todas as rodadas o console ficou
+**sem erros e sem avisos**.
+
+### 10.1 localStorage no formulário de contato (`public/js/rascunho.js`)
+
+| Caso | Passos | Esperado | Resultado |
+|---|---|---|---|
+| Salvar | Digitar nome, e-mail e mensagem | Gravar a cada `input` | ✅ Chave `eloSolidario.rascunhoContato` = `{"nome":"Ana Souza","email":"ana@exemplo.com","telefone":"","mensagem":"1234567890"}` |
+| Só os campos permitidos | Preencher também o CEP 01310-100, a rua e o número | CEP, endereço, data e participantes **não** são salvos | ✅ O JSON tem só `nome`, `email`, `telefone` e `mensagem`; é a única chave do site |
+| Envio válido mantém os dados | Enviar com tudo válido | Sucesso, sem limpar | ✅ Mensagem de sucesso; campos e localStorage continuam preenchidos |
+| Recarregar e recuperar | Recarregar a página (F5) | Campos preenchidos no `DOMContentLoaded` e aviso anunciado | ✅ Nome, e-mail e mensagem voltaram; CEP e rua vazios; aviso "Rascunho recuperado…" em área `aria-live="polite"` |
+| Limpar dados | Gerar um erro (mensagem "curta") e clicar em "Limpar dados" | `removeItem`, formulário vazio, erros apagados | ✅ `localStorage.getItem(...)` = `null`; campos vazios; 0 campos com `aria-invalid`; aviso "Dados apagados…" |
+| Botão não envia o formulário | Conferir o botão | `type="button"` | ✅ `type="button"` |
+| localStorage bloqueado | Recarregar com `localStorage` lançando `SecurityError` e digitar | Formulário funciona; aviso amigável; nenhum erro no console | ✅ "O navegador bloqueou o armazenamento local: o rascunho não será salvo, mas o formulário funciona normalmente."; "Limpar dados" continua funcionando |
+| Exemplo da equipe | Abrir [`/exemplos/teste-local-storage/scriptstorage.html`](../public/exemplos/teste-local-storage/scriptstorage.html) e digitar | Grava `formNome` e `formEmail` | ✅ Gravou `formNome` = "Teste" e `formEmail` = "t@x.com"; o console mostra só os `console.log` do próprio exemplo |
+
+### 10.2 Validação com JavaScript (`public/js/formulario.js`)
+
+O formulário usa `novalidate`: os atributos HTML5 continuam no código, mas as mensagens vêm do JavaScript.
+Cada erro aparece logo abaixo do campo, em vermelho `#b3261e` (6,17:1 sobre o fundo `#fbf8f2`; 5,62:1
+sobre o verde-claro). O campo recebe `aria-invalid="true"` e borda vermelha de 3 px (`rgb(179, 38, 30)`,
+medido no navegador), e a mensagem fica ligada a ele por `aria-describedby`.
+
+| Campo | Entrada | Esperado | Resultado |
+|---|---|---|---|
+| Todos | Enviar vazio | `preventDefault`, erros e foco no 1º campo | ✅ "Não foi possível enviar: 9 campos precisam de correção."; foco em `nome` |
+| Nome | 3 espaços | Inválido (`trim`) | ✅ "O nome é obrigatório." |
+| E-mail | `anaexemplo.com` (sem @) | Inválido | ✅ "E-mail inválido: use o formato nome@provedor.com." |
+| E-mail | `ana@exemplo` (sem ponto) | Inválido | ✅ Mesma mensagem |
+| E-mail | `ana@exemplo.com` | Válido | ✅ Sem erro; a borda volta ao cinza `rgb(85, 99, 90)` |
+| Telefone | `11912345678` | Inválido (regex `/^\(\d{2}\) ?\d{4,5}-\d{4}$/`) | ✅ "Telefone inválido: use o formato (11) 91234-5678." |
+| Telefone | `(11) 91234-5678` | Válido | ✅ Sem erro |
+| Telefone | `(11) 1234-5678` (fixo) | Válido | ✅ Sem erro |
+| Telefone | vazio | Válido (é opcional) | ✅ Sem erro |
+| **Mensagem** | **`123456789` (9 caracteres)** | **Inválido** | ✅ **"A mensagem precisa ter pelo menos 10 caracteres (você digitou 9)."** ([captura](evidencias/js-validacao-mensagem-9-caracteres.png)) |
+| **Mensagem** | **`1234567890` (10 caracteres)** | **Válido** | ✅ **Sem erro** |
+| Erro some ao corrigir | Corrigir o e-mail depois do erro | A mensagem some enquanto a pessoa digita | ✅ Erro apagado no evento `input` |
+| Foco no 1º erro | Nome e e-mail válidos, endereço vazio | Foco no 1º campo com erro | ✅ Foco em `cep`; "6 campos precisam de correção." |
+| Data e número (regressão) | data passada; `0`, `10001`, `2.5`, `25`; data de hoje e daqui a 30 dias | Iguais à seção 6 | ✅ Mesmas mensagens da seção 6; `min="2026-11-16"` no dia do teste |
+| ViaCEP (regressão) | `01310100`; `0131`; `99999999` | Iguais à seção 6 | ✅ Avenida Paulista, Bela Vista, São Paulo/SP; mensagem de formato; "CEP não encontrado…" |
+
+Captura com vários erros: [js-validacao-erros-contato.png](evidencias/js-validacao-erros-contato.png).
+
+### 10.3 Controles do vídeo e botão do iframe (`public/js/midia.js`)
+
+| Caso | Esperado | Resultado |
+|---|---|---|
+| Estado inicial | Botão "▶ Reproduzir", `aria-label="Reproduzir o vídeo"`, `aria-pressed="false"`; `<video>` com `controls` e `poster` | ✅ Tudo conforme |
+| Clicar em "▶ Reproduzir" | `play()`; botão vira "⏸ Pausar", `aria-label="Pausar o vídeo"`, `aria-pressed="true"` | ✅ Evento `play` 4 ms depois do clique; texto, rótulo e `aria-pressed` atualizados |
+| Clicar em "⏸ Pausar" | `pause()`; botão volta a "▶ Reproduzir" | ✅ `video.paused = true` e botão atualizado |
+| Controles nativos | Tocar pelo player nativo também atualiza o botão | ✅ O botão mudou para "⏸ Pausar" (eventos `play` e `pause`) |
+| "Pular para 1:30" | `currentTime = 90` (vídeo de 1:34; duração lida: 94,45 s) | ✅ `currentTime = 90`; aviso "Vídeo posicionado em 1:30." |
+| "Aumentar volume" com volume 1,0 | Não passar de 1,0 | ✅ Continua em 1; "O volume já está no máximo (100%)." |
+| "Diminuir volume" 3 vezes | De 1,0 para 0,7, em passos de 0,1 | ✅ `volume = 0.7`; "Volume: 70%." |
+| "Diminuir volume" mais 10 vezes | Não passar de 0,0 | ✅ Continua em 0; "O volume já está no mínimo (0%)." |
+| "Aumentar volume" a partir de 0 | 0,1 | ✅ `volume = 0.1` |
+| Teclado | Botões alcançáveis por Tab, foco visível, Enter aciona | ✅ Shift+Tab chegou a "▶ Reproduzir" com `:focus-visible` (contorno sólido); Enter tocou o vídeo ([captura](evidencias/js-controles-video-midia.png)) |
+| "Já assisti ao vídeo" (abaixo do iframe) | Mensagem na página com `addEventListener("click")`, sem `alert()` | ✅ "Você assistiu ao vídeo sobre moeda social! Apoie a economia solidária." em área `aria-live="polite"` |
+| Botões | Todos `type="button"`, sem `tabindex` positivo | ✅ 5 de 5 |
+
+### 10.4 Outras verificações de 16/11/2026
+
+| Teste | Resultado |
+|---|---|
+| As 10 páginas, o exemplo e os 4 scripts do formulário e da mídia respondem 200 | ✅ |
+| Console sem erros nem avisos nas 10 páginas | ✅ |
+| Sem rolagem horizontal em `contato.html` (com todos os erros visíveis) e em `midia.html` | ✅ Testado a 500 px, a menor largura de janela que o Chrome permite; os botões quebram linha. O teste a 375 px de 10/11 (seção 5) não foi repetido |
+| Nenhum `alert()` no site (`public/js/`) | ✅ 0 ocorrências. O exemplo da equipe usa `alert()` e foi mantido sem mudar a lógica, a pedido da equipe: é uma página de estudo à parte, fora do menu |
+| Validação W3C de `contato.html`, `midia.html`, do exemplo e do CSS | ✅ Ver seção 1 |

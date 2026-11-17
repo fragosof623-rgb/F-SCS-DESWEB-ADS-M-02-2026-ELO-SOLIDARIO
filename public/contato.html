@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/cep.js" defer></script>
   <script src="js/formulario.js" defer></script>
+  <script src="js/rascunho.js" defer></script>
   <script src="js/ecobot.js" defer></script>
 </head>
 <body>
@@ -92,15 +93,21 @@
           <h2 id="formulario-heading">Envie sua mensagem</h2>
           <p class="field-hint">Campos marcados com <span class="obrigatorio" aria-hidden="true">*</span> são obrigatórios.</p>
 
-          <form id="form-contato" class="form-grid" action="contato.html" method="get">
+          <!-- novalidate: a validação em JavaScript (formulario.js) mostra as mensagens na página,
+               no lugar das bolhas do navegador. Os atributos HTML5 continuam como primeira camada. -->
+          <form id="form-contato" class="form-grid" action="contato.html" method="get" novalidate>
             <div class="field col-6">
               <label for="nome">Nome completo <span class="obrigatorio" aria-hidden="true">*</span></label>
-              <input type="text" id="nome" name="nome" required minlength="2" maxlength="100" autocomplete="name" />
+              <input type="text" id="nome" name="nome" required minlength="2" maxlength="100" autocomplete="name"
+                aria-describedby="nome-erro" />
+              <p id="nome-erro" class="erro-campo" aria-live="polite"></p>
             </div>
 
             <div class="field col-3">
               <label for="email">E-mail <span class="obrigatorio" aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" />
+              <input type="email" id="email" name="email" required maxlength="120" autocomplete="email"
+                aria-describedby="email-erro" />
+              <p id="email-erro" class="erro-campo" aria-live="polite"></p>
             </div>
 
             <div class="field col-3">
@@ -110,12 +117,13 @@
                 id="telefone"
                 name="telefone"
                 maxlength="15"
-                pattern="\(?\d{2}\)?\s?\d{4,5}-?\d{4}"
-                title="DDD e número, por exemplo: (11) 91234-5678"
+                pattern="\(\d{2}\) ?\d{4,5}-\d{4}"
+                title="DDD entre parênteses e número com hífen, por exemplo: (11) 91234-5678"
                 autocomplete="tel"
-                aria-describedby="telefone-dica"
+                aria-describedby="telefone-dica telefone-erro"
               />
               <p id="telefone-dica" class="field-hint">Com DDD. Ex.: (11) 91234-5678</p>
+              <p id="telefone-erro" class="erro-campo" aria-live="polite"></p>
             </div>
 
             <div class="field col-3">
@@ -168,12 +176,14 @@
 
                 <div class="field col-4">
                   <label for="rua">Rua <span class="obrigatorio" aria-hidden="true">*</span></label>
-                  <input type="text" id="rua" name="rua" required maxlength="120" autocomplete="address-line1" />
+                  <input type="text" id="rua" name="rua" required maxlength="120" autocomplete="address-line1" aria-describedby="rua-erro" />
+                  <p id="rua-erro" class="erro-campo" aria-live="polite"></p>
                 </div>
 
                 <div class="field col-2">
                   <label for="numero">Número <span class="obrigatorio" aria-hidden="true">*</span></label>
-                  <input type="text" id="numero" name="numero" required maxlength="10" inputmode="numeric" />
+                  <input type="text" id="numero" name="numero" required maxlength="10" inputmode="numeric" aria-describedby="numero-erro" />
+                  <p id="numero-erro" class="erro-campo" aria-live="polite"></p>
                 </div>
 
                 <div class="field col-4">
@@ -183,17 +193,19 @@
 
                 <div class="field col-2">
                   <label for="bairro">Bairro <span class="obrigatorio" aria-hidden="true">*</span></label>
-                  <input type="text" id="bairro" name="bairro" required maxlength="80" autocomplete="address-level3" />
+                  <input type="text" id="bairro" name="bairro" required maxlength="80" autocomplete="address-level3" aria-describedby="bairro-erro" />
+                  <p id="bairro-erro" class="erro-campo" aria-live="polite"></p>
                 </div>
 
                 <div class="field col-2">
                   <label for="cidade">Cidade <span class="obrigatorio" aria-hidden="true">*</span></label>
-                  <input type="text" id="cidade" name="cidade" required maxlength="80" autocomplete="address-level2" />
+                  <input type="text" id="cidade" name="cidade" required maxlength="80" autocomplete="address-level2" aria-describedby="cidade-erro" />
+                  <p id="cidade-erro" class="erro-campo" aria-live="polite"></p>
                 </div>
 
                 <div class="field col-2">
                   <label for="uf">UF <span class="obrigatorio" aria-hidden="true">*</span></label>
-                  <select id="uf" name="uf" required autocomplete="address-level1">
+                  <select id="uf" name="uf" required autocomplete="address-level1" aria-describedby="uf-erro">
                     <option value="">Selecione</option>
                     <option value="AC">Acre (AC)</option>
                     <option value="AL">Alagoas (AL)</option>
@@ -223,20 +235,32 @@
                     <option value="SE">Sergipe (SE)</option>
                     <option value="TO">Tocantins (TO)</option>
                   </select>
+                  <p id="uf-erro" class="erro-campo" aria-live="polite"></p>
                 </div>
               </div>
             </fieldset>
 
             <div class="field col-6">
               <label for="mensagem">Mensagem <span class="obrigatorio" aria-hidden="true">*</span></label>
-              <textarea id="mensagem" name="mensagem" rows="6" required minlength="10" maxlength="1000"></textarea>
+              <textarea id="mensagem" name="mensagem" rows="6" required minlength="10" maxlength="1000"
+                aria-describedby="mensagem-dica mensagem-erro"></textarea>
+              <p id="mensagem-dica" class="field-hint">Pelo menos 10 caracteres.</p>
+              <p id="mensagem-erro" class="erro-campo" aria-live="polite"></p>
             </div>
 
             <div class="field col-6">
-              <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+              <div class="form-acoes">
+                <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                <button type="button" id="limpar-dados" class="btn btn-outline-alt" aria-describedby="rascunho-nota">Limpar dados</button>
+              </div>
               <p id="envio-status" class="form-status" aria-live="polite" aria-atomic="true"></p>
+              <p id="rascunho-status" class="form-status" aria-live="polite" aria-atomic="true"></p>
             </div>
           </form>
+          <p id="rascunho-nota" class="nota-ficticia">
+            Seus dados ficam salvos só neste navegador até você clicar em Limpar dados.
+            (São guardados apenas nome, e-mail, telefone e mensagem.)
+          </p>
         </div>
       </div>
     </section>

@@ -15,6 +15,7 @@
   />
 
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/midia.js" defer></script>
   <script src="js/ecobot.js" defer></script>
 </head>
 <body>
@@ -80,6 +81,10 @@
             O vídeo não começa sozinho. Para ver as legendas, use o botão “CC” do player.
           </figcaption>
         </figure>
+        <div class="controles-midia">
+          <button type="button" id="botao-assisti" class="btn btn-outline-alt">Já assisti ao vídeo</button>
+        </div>
+        <p id="assisti-status" class="midia-status" aria-live="polite" aria-atomic="true"></p>
       </div>
     </section>
 
@@ -91,13 +96,20 @@
           cooperativas de reciclagem explicam por que a coleta seletiva é importante e como separar o lixo em casa.
         </p>
         <figure class="midia-figura">
-          <video controls preload="metadata" poster="img/poster-coleta-seletiva.webp" width="854" height="480"
+          <video id="video-coleta" controls preload="metadata" poster="img/poster-coleta-seletiva.webp" width="854" height="480"
             aria-describedby="video-local-resumo">
             <source src="video/coleta-seletiva-cooperativas.webm" type="video/webm" />
             Seu navegador não reproduz este vídeo.
             <a href="video/coleta-seletiva-cooperativas.webm">Baixe o arquivo do vídeo (WebM, cerca de 10 MB)</a>
             ou leia o resumo abaixo.
           </video>
+          <div class="controles-midia" role="group" aria-label="Controles extras do vídeo da TV Senado">
+            <button type="button" id="video-play" class="btn btn-outline-alt" aria-label="Reproduzir o vídeo" aria-pressed="false">▶ Reproduzir</button>
+            <button type="button" id="video-pular" class="btn btn-outline-alt">Pular para 1:30</button>
+            <button type="button" id="video-volume-menos" class="btn btn-outline-alt">Diminuir volume</button>
+            <button type="button" id="video-volume-mais" class="btn btn-outline-alt">Aumentar volume</button>
+          </div>
+          <p id="video-status" class="midia-status" aria-live="polite" aria-atomic="true"></p>
           <figcaption class="fonte-midia">
             “Coleta Seletiva: cooperativas dão dicas para a separação do lixo”, Senado Federal (TV Senado), 2018.
             Licença <a href="https://creativecommons.org/licenses/by/3.0/deed.pt-br" target="_blank" rel="noopener">CC BY 3.0<span class="visually-hidden"> (abre em nova aba)</span></a>.

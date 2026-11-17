@@ -19,6 +19,7 @@
   --color-border: #e1d9c8;       /* bordas suaves */
   --color-focus: #1f4a34;        /* anel externo do foco (contraste 3:1+ sobre fundos claros) */
   --color-focus-interno: #ffffff; /* anel interno do foco (contraste 3:1+ sobre o verde-escuro e os botões dourados) */
+  --color-erro: #b3261e;         /* mensagens e bordas de erro: 6,17:1 sobre o fundo, 6,54:1 sobre branco, 5,62:1 sobre o verde-claro */
 
   /* Tipografia */
   --font-heading: "Poppins", "Segoe UI", Arial, sans-serif;
@@ -554,14 +555,36 @@ textarea:focus-visible {
   border-radius: 0.5rem;
 }
 
-.form-contato input[aria-invalid="true"] {
-  border-color: var(--color-terracota);
+/* Campo com erro (aria-invalid="true", marcado por formulario.js): borda vermelha mais grossa */
+.form-contato input[aria-invalid="true"],
+.form-contato select[aria-invalid="true"],
+.form-contato textarea[aria-invalid="true"] {
+  border-color: var(--color-erro);
   border-width: 3px;
+}
+
+/* Texto do erro logo abaixo do campo */
+.erro-campo {
+  color: var(--color-erro);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.erro-campo:empty {
+  display: none;
 }
 
 .form-contato .btn {
   align-self: flex-start;
   cursor: pointer;
+}
+
+/* Botões "Enviar mensagem" e "Limpar dados" lado a lado (um embaixo do outro no celular estreito) */
+.form-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
 }
 
 .form-fieldset {
@@ -606,9 +629,9 @@ textarea:focus-visible {
 }
 
 .form-status--erro {
-  color: var(--color-terracota);
+  color: var(--color-erro);
   font-weight: 600;
-  border-left: 4px solid var(--color-terracota);
+  border-left: 4px solid var(--color-erro);
   padding-left: var(--space-1);
 }
 
@@ -1081,4 +1104,26 @@ kbd {
   height: auto;
   background-color: var(--color-green-dark);
   border-radius: var(--radius);
+}
+
+/* Controles extras de mídia (midia.html, midia.js): botões que quebram linha no celular */
+.controles-midia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.controles-midia .btn {
+  cursor: pointer;
+}
+
+.midia-status {
+  color: var(--color-green-dark);
+  font-weight: 600;
+  margin: var(--space-1) 0 0;
+}
+
+.midia-status:empty {
+  display: none;
 }

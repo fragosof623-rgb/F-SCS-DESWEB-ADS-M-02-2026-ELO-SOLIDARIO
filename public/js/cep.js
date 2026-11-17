@@ -11,7 +11,6 @@
   if (!form || !campoCep) return;
 
   const statusCep = document.getElementById("cep-status");
-  const statusEnvio = document.getElementById("envio-status");
   const campoNumero = document.getElementById("numero");
   const camposEndereco = {
     rua: document.getElementById("rua"),
@@ -174,17 +173,11 @@
 
   campoCep.addEventListener("blur", verificarCep);
 
-  /* ---------- Envio do formulário (simulado: o site é estático) ---------- */
-  form.addEventListener("submit", function (evento) {
-    evento.preventDefault();
-    form.reset();
+  /* ---------- Formulário limpo pelo botão "Limpar dados" (rascunho.js) ---------- */
+  // O envio e a validação ficam em formulario.js; aqui só cancelamos a consulta em andamento.
+  form.addEventListener("reset", function () {
     cancelarConsulta();
     limparErro();
     mostrarStatus(statusCep, "");
-    mostrarStatus(
-      statusEnvio,
-      "Obrigado! Sua mensagem foi registrada. (Envio simulado: este é um site acadêmico sem servidor.)",
-      "sucesso"
-    );
   });
 })();

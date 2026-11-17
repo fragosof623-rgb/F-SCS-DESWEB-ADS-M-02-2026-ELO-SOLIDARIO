@@ -19,6 +19,9 @@ app.set("trust proxy", 1); // o Railway fica na frente do app como proxy
 app.use(express.json({ limit: "32kb" }));
 app.use(express.static(path.join(import.meta.dirname, "public")));
 
+// O site não tem favicon: responde "sem conteúdo" para o navegador não registrar erro 404 no console
+app.get("/favicon.ico", (req, res) => res.status(204).end());
+
 /* ---------- Limite simples de requisições (protege os créditos da API) ---------- */
 const acessos = new Map();
 
@@ -65,6 +68,14 @@ function montarMensagens(corpo) {
   mensagens.push({ role: "user", content: mensagem });
   return { mensagens };
 }
+
+/* ---------- Status do EcoBot ---------- */
+// Diz ao navegador se o EcoBot pode aparecer. Responde só true/false: nunca a chave nem parte dela.
+// Usa a mesma regra de lib/ia.js (variável ausente ou vazia = EcoBot desativado).
+app.get("/api/status", (req, res) => {
+  res.set("Cache-Control", "no-store");
+  res.json({ ecobot: Boolean(process.env.ANTHROPIC_API_KEY) });
+});
 
 /* ---------- Rota do EcoBot ---------- */
 app.post("/api/chat", limitarRequisicoes, async (req, res) => {

@@ -2,10 +2,33 @@
    Elo Solidário — EcoBot (chat acessível com a IA)
    Monta o chat em qualquer página que carregar este arquivo.
    Conversa com o servidor pela rota POST /api/chat.
+   Antes de montar qualquer coisa, pergunta ao servidor (GET /api/status)
+   se o EcoBot está ativo. Sem a chave da API no servidor, ou se a
+   consulta falhar, nada é criado na página: nem botão, nem aviso.
    ========================================================= */
 
-(function () {
+(async function () {
   "use strict";
+
+  /* ---------- O EcoBot está ativo neste servidor? ---------- */
+  async function ecobotAtivo() {
+    const controle = new AbortController();
+    const temporizador = setTimeout(function () {
+      controle.abort();
+    }, 5000);
+    try {
+      const resposta = await fetch("/api/status", { signal: controle.signal, cache: "no-store" });
+      if (!resposta.ok) return false;
+      const dados = await resposta.json();
+      return dados.ecobot === true;
+    } catch (erro) {
+      return false; // sem servidor, sem rede ou resposta inválida: o EcoBot fica oculto
+    } finally {
+      clearTimeout(temporizador);
+    }
+  }
+
+  if (!(await ecobotAtivo())) return;
 
   const LIMITE_CARACTERES = 1000;
   const TEMPO_LIMITE_MS = 45000;

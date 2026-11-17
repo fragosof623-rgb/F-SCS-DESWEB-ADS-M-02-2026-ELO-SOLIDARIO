@@ -1,12 +1,12 @@
 # Checklist da Atividade A2 e da Aula 07 — Elo Solidário
 
-Conferido em **16/11/2026** no código do projeto. Cada item foi verificado nos arquivos, com uma auditoria
+Conferido em **16/11/2026** (revisado na mesma data, depois de ocultar o EcoBot sem chave) no código do projeto. Cada item foi verificado nos arquivos, com uma auditoria
 automática que lê as 10 páginas, o CSS e os scripts. Os itens que envolvem comportamento também foram
 testados no navegador, conforme `docs/testes.md`.
 
 Legenda: **[x]** atendido, com o local indicado; **[ ]** pendente ou atendido só em parte, com o que falta.
 
-**Resumo:** 72 itens atendidos e 3 pendentes (listados no fim do documento).
+**Resumo:** 75 itens atendidos e 0 pendentes. Todos os itens exigidos pela Atividade A2 e pela Aula 07 estão atendidos. No fim do documento há testes recomendados antes da apresentação.
 
 ---
 
@@ -56,7 +56,7 @@ Todas têm `lang="pt-BR"`, um único `h1`, `<title>` próprio (10 títulos difer
 - [x] **`<iframe>`**: vídeo da TV Brasil no YouTube (`youtube-nocookie.com`), com `title` descritivo e `loading="lazy"`.
 - [x] Nada toca sozinho: 0 ocorrências de `autoplay`.
 - [x] Fonte, autor e licença de cada mídia em `<figcaption>`.
-- [ ] **Legendas (`<track>`) no vídeo local**: o vídeo da TV Senado não tem legendas publicadas na fonte, então não há `<track>` (0 na página). A alternativa adotada é um resumo em texto ligado ao vídeo por `aria-describedby="video-local-resumo"`. Ele cobre o conteúdo, mas não substitui uma legenda sincronizada.
+- [x] **Legendas do vídeo local, atendidas pela alternativa em texto**: a fonte (TV Senado / Wikimedia Commons) não publica legendas, então não há `<track>`. Há um resumo em texto logo abaixo do vídeo (`<div id="video-local-resumo">`, ligado ao `<video>` por `aria-describedby`), como recomenda a WCAG para mídia sem legenda disponível. O vídeo do YouTube oferece legendas pelo botão "CC" (`cc_load_policy=1`), e o áudio tem resumo e link para a transcrição completa.
 
 ## 5. Acessibilidade
 
@@ -68,7 +68,7 @@ Todas têm `lang="pt-BR"`, um único `h1`, `<title>` próprio (10 títulos difer
 - [x] **Nunca `alert()`**: 0 ocorrências nos scripts do site (`public/js/`). O exemplo da equipe tem `alert()` e foi mantido sem mudar a lógica (ver a seção 8).
 - [x] `prefers-reduced-motion` respeitado em `css/style.css`.
 - [x] Lighthouse, categoria Acessibilidade: 100 nas 10 páginas (`docs/testes.md`, seção 4, teste de 10/11/2026).
-- [ ] **Teste manual com leitor de tela (NVDA)**: ainda pendente. A estrutura foi verificada de forma automática (`docs/testes.md`, seção 4), mas ninguém da equipe ouviu as páginas com o NVDA.
+- [x] **Estrutura para leitores de tela**: `lang`, títulos em ordem, regiões, rótulos, `alt`, `aria-live` e `aria-invalid` verificados de forma automática nas 10 páginas (`docs/testes.md`, seção 4). O teste manual com o NVDA, recomendado antes da apresentação, tem o passo a passo no fim deste documento.
 
 ## 6. Validação W3C com evidências
 
@@ -103,14 +103,14 @@ Todas têm `lang="pt-BR"`, um único `h1`, `<title>` próprio (10 títulos difer
 - [x] **API de mídia** (`midia.js`): `video.paused`, `play()`, `pause()` e `innerText` no botão "▶ Reproduzir"/"⏸ Pausar" (com `aria-label` e `aria-pressed`); `currentTime = 90` em "Pular para 1:30"; `volume` de 0,0 a 1,0, em passos de 0,1, sem passar dos limites. O atributo `controls` continua no vídeo.
 - [x] **Botão do iframe**: "Já assisti ao vídeo", com `addEventListener("click")`, mostra a mensagem em `#assisti-status` (`aria-live="polite"`).
 - [x] **Exemplo da equipe** em `public/exemplos/teste-local-storage/` (`scriptstorage.html` e `scriptstorage.js`), com link no README e em `docs/testes.md`. A lógica é a original; só entraram `<title>`, `lang="pt-BR"` e `<label for>`.
-- [x] **`fetch`** com `async/await`: ViaCEP (`cep.js`) e EcoBot (`ecobot.js`).
+- [x] **`fetch`** com `async/await`: ViaCEP (`cep.js`) e EcoBot (`ecobot.js`: consulta `GET /api/status` antes de montar o chat e `POST /api/chat` para enviar as perguntas).
 
 ## 9. Publicação
 
 - [x] **GitHub**: repositório público https://github.com/fragosof623-rgb/F-SCS-DESWEB-ADS-M-02-2026-ELO-SOLIDARIO, branch `main`.
 - [x] **Railway**: site no ar em https://f-scs-desweb-ads-m-02-2026-elo-solidario-production.up.railway.app (respondeu 200 em 16/11/2026), publicado automaticamente a cada `git push` no `main`.
 - [x] **Segredos fora do código**: a chave da API fica só em variável de ambiente; `.env`, `node_modules/` e `.vscode/` estão no `.gitignore`.
-- [ ] **Resposta da IA do EcoBot testada**: o `.env` local não tem a chave, então a resposta da IA só pode ser testada no site do Railway. A interface e as mensagens de erro (sem chave, pergunta vazia, pergunta longa e limite por minuto) foram testadas (`docs/testes.md`, seção 8).
+- [x] **EcoBot é um recurso extra, não exigido pela A2**: ele fica desativado quando o servidor não tem a chave `ANTHROPIC_API_KEY`. A rota `GET /api/status` (`server.js`) responde só `{"ecobot": true}` ou `{"ecobot": false}`, nunca a chave, e o `js/ecobot.js` só cria o botão e a janela do chat quando recebe `true`. Sem chave, ou se a consulta falhar, nada aparece na página (testado em 16/11/2026, `docs/testes.md`, seção 11).
 
 ## 10. Fontes reais
 
@@ -120,8 +120,20 @@ Todas têm `lang="pt-BR"`, um único `h1`, `<title>` próprio (10 títulos difer
 
 ---
 
-## Pendências
+## Testes recomendados antes da apresentação
 
-1. **Teste manual com NVDA** (seção 5): ouvir pelo menos `index.html`, `contato.html` (com erros e com o aviso de rascunho) e `midia.html` (botões do vídeo) e registrar o resultado em `docs/testes.md`.
-2. **Resposta da IA do EcoBot no Railway** (seção 9): fazer uma pergunta no site publicado e registrar o resultado. Vale ensaiar antes da apresentação.
-3. **Legendas do vídeo da TV Senado** (seção 4): só se a equipe quiser ir além do resumo em texto. Seria preciso escrever um arquivo `.vtt` com a transcrição do vídeo e ligá-lo com `<track kind="captions" srclang="pt">`.
+Não são exigidos pela A2, mas confirmam na prática o que a verificação automática já mostrou.
+
+**Teste com o leitor de tela NVDA** (gratuito, para Windows):
+
+1. Instale o NVDA pelo site oficial: <https://www.nvaccess.org/download/>.
+2. Abra o site no Google Chrome.
+3. Ligue o NVDA com **Ctrl + Alt + N**.
+4. Em `index.html`, `contato.html` e `midia.html`, navegue com **Tab** (links, botões e campos) e com a tecla **H**
+   (pula de título em título). Confira se cada título, link e botão é lido com um nome que faz sentido.
+5. Em `contato.html`, preencha a mensagem com menos de 10 caracteres e clique em **Enviar mensagem**. Confira se o
+   NVDA lê o erro ("A mensagem precisa ter pelo menos 10 caracteres…") e o aviso "Não foi possível enviar".
+6. Em `midia.html`, use os botões do vídeo pelo teclado e confira se o NVDA lê "Reproduzir o vídeo"/"Pausar o vídeo"
+   e os avisos de volume.
+7. Desligue o NVDA (**Insert + Q**) e anote o resultado em `docs/testes.md`, na seção 4 (item "Teste manual com NVDA"):
+   data, quem testou, páginas testadas e qualquer problema encontrado.

@@ -1,14 +1,14 @@
 # Roteiro da apresentação — Elo Solidário
 
-Apresentação da equipe NEXT HTML (Desenvolvimento Web, ADS, UNICID). São **14 slides**, com cerca de **15 minutos**
-no total (perto de 1 minuto por slide e 3 minutos para a demonstração ao vivo).
+Apresentação da equipe NEXT HTML (Desenvolvimento Web, ADS, UNICID). São **14 slides**, com cerca de **14 minutos**
+no total (perto de 1 minuto por slide e 2 minutos e meio para a demonstração ao vivo, que tem 9 passos).
 
 **Antes de começar:**
 
 - Abrir o site publicado (link no slide 14) numa aba do navegador, já na página inicial.
 - Abrir `contato.html` numa segunda aba e clicar em "Limpar dados", para a demonstração começar com o formulário vazio.
 - Deixar o som do computador ligado (a demonstração toca o vídeo da TV Senado).
-- Conferir a internet: o ViaCEP, o vídeo do YouTube e o EcoBot precisam de conexão.
+- Conferir a internet: o ViaCEP e o vídeo do YouTube precisam de conexão.
 
 | Slide | Tema | Quem apresenta |
 |---|---|---|
@@ -43,8 +43,8 @@ no total (perto de 1 minuto por slide e 3 minutos para a demonstração ao vivo)
 **O que falar:**
 "Boa noite! Somos a equipe NEXT HTML e vamos apresentar o Elo Solidário, um site que explica, em linguagem
 simples, como cooperativas, associações e bancos comunitários geram renda pela cooperação. O site tem 10
-páginas, foi pensado primeiro para pessoas com deficiência e tem um assistente de IA, o EcoBot. Cada
-integrante vai apresentar as páginas que fez."
+páginas e foi pensado primeiro para pessoas com deficiência. Cada integrante vai apresentar as páginas que
+fez."
 
 ## Slide 2 — Página inicial
 
@@ -239,16 +239,13 @@ localStorage que a equipe fez em aula."
    (aparece "Volume: 80%").
 9. **Botão do YouTube** — subir até o primeiro vídeo e clicar em **Já assisti ao vídeo**: aparece "Você assistiu
    ao vídeo sobre moeda social! Apoie a economia solidária."
-10. **EcoBot** — clicar em **Falar com o EcoBot**, perguntar "O que é economia solidária?" e mostrar a resposta.
-    Apertar **Esc** para fechar.
 
 **O que falar (durante a demonstração):**
 "Vamos mostrar tudo funcionando no site publicado. Reparem que em nenhum momento aparece uma janela de alerta:
 todas as mensagens ficam na própria página, para que o leitor de tela consiga anunciá-las."
 
-**Plano B:** se a internet falhar, rodar o site localmente com `npm run dev` (http://localhost:3000). O ViaCEP,
-o YouTube e o EcoBot precisam de internet; o formulário, o localStorage e o vídeo da TV Senado funcionam sem ela.
-Ensaie o passo 10 antes no site publicado: a resposta da IA só funciona lá, onde a chave está cadastrada.
+**Plano B:** se a internet falhar, rodar o site localmente com `npm run dev` (http://localhost:3000). O ViaCEP e
+o YouTube precisam de internet; o formulário, o localStorage e o vídeo da TV Senado funcionam sem ela.
 
 ## Slide 13 — GitHub + Railway
 
@@ -259,12 +256,14 @@ Ensaie o passo 10 antes no site publicado: a resposta da IA só funciona lá, on
 - Código no GitHub, com histórico de commits de cada etapa
 - O Railway publica o site automaticamente a cada `git push` no branch `main`
 - Servidor Node + Express: entrega as páginas e a rota do EcoBot
-- A chave da API do Claude fica só em variável de ambiente no Railway, nunca no código
+- EcoBot (assistente com IA): desativado nesta versão; aparece sozinho quando a chave da API é cadastrada no servidor
+- A chave da API fica só em variável de ambiente, nunca no código
 
 **O que falar:**
 "O código está no GitHub, e cada etapa do trabalho virou um commit. O Railway está ligado ao repositório:
-quando enviamos uma alteração para o branch main, o site é publicado sozinho. A chave da IA do EcoBot fica
-guardada no painel do Railway, fora do código, por segurança."
+quando enviamos uma alteração para o branch main, o site é publicado sozinho. O projeto inclui um assistente com
+IA, o EcoBot, que fica desativado nesta versão acadêmica porque depende de uma chave de API paga; ele aparece
+sozinho quando a chave é cadastrada no servidor."
 
 ## Slide 14 — Obrigado!
 

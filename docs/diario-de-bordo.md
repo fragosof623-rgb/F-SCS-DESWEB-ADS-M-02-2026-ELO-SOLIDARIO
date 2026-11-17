@@ -150,3 +150,31 @@ como indica a linha `Co-Authored-By` de cada commit.
     DDD entre parênteses e hífen, por exemplo (11) 91234-5678.
   - **`alert()` no exemplo.** O exemplo da equipe usa `alert()`. Ele foi mantido sem mudar a lógica, mas o
     site em si não usa `alert()`: as mensagens aparecem na página.
+
+## 16/11/2026 (noite) — EcoBot oculto sem chave, roteiro e checklist
+
+- **O que foi feito:**
+  - **EcoBot oculto sem chave.** O EcoBot depende de uma chave de API paga, que esta versão acadêmica não tem.
+    Para o botão "Falar com o EcoBot" não aparecer sem funcionar, foi criada a rota `GET /api/status` em
+    `server.js`. Ela responde só `{"ecobot": true}` ou `{"ecobot": false}`, conforme a variável
+    `ANTHROPIC_API_KEY` exista ou não, e nunca devolve a chave. O `public/js/ecobot.js` consulta essa rota antes
+    de montar o chat: se a resposta for `false`, ou se a consulta falhar, nada é criado na página. Quando a chave
+    for cadastrada no servidor, o EcoBot volta a aparecer sozinho. O `lib/ia.js` não foi alterado.
+  - **Acessibilidade.** Os atalhos do EcoBot continuam listados em `acessibilidade.html`, agora com a observação
+    "(quando o assistente estiver ativo)".
+  - **Roteiro.** A demonstração do EcoBot saiu da apresentação. A demonstração ao vivo passou a ter 9 passos e o
+    tempo total, cerca de 14 minutos. No slide de GitHub + Railway entrou uma frase explicando por que o EcoBot
+    está desativado.
+  - **Checklist.** As legendas do vídeo foram marcadas como atendidas pela alternativa em texto. O EcoBot foi
+    registrado como recurso extra, não exigido pela A2. O teste com NVDA virou um passo a passo na seção "Testes
+    recomendados antes da apresentação".
+  - **Testes.** Nova seção 11 em `docs/testes.md`: rota `/api/status` com e sem a chave e EcoBot oculto nas
+    10 páginas.
+- **Responsável:** Felipe Fragoso (envio pelo Git, com apoio do Claude Code).
+- **Dificuldades e decisões:**
+  - **Teste com e sem chave.** Para testar o caso "com chave" sem usar uma chave verdadeira, um segundo servidor
+    local foi iniciado com um valor falso na variável. A rota só verifica se a variável existe, então o valor
+    falso basta para simular a presença da chave.
+  - **Favicon.** Os testes numa primeira visita mostraram um erro 404 no console, porque o navegador pede
+    `/favicon.ico` sozinho e o site não tem esse arquivo. O servidor passou a responder "sem conteúdo" (204)
+    nesse endereço.

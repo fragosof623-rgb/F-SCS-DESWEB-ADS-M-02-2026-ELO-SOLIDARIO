@@ -16,8 +16,9 @@ Resumo:
 | Responsividade (celular, tablet e desktop) | ✅ Aprovado, depois de 1 correção feita durante os testes |
 | Formulário de contato | ✅ Aprovado (casos válidos e inválidos) |
 | Links | ✅ Aprovado |
-| EcoBot | ✅ Interface e validações aprovadas; resposta da IA não testada localmente (sem chave) |
+| EcoBot (recurso extra) | ✅ Interface e validações aprovadas; oculto quando o servidor não tem a chave (seção 11) |
 | JavaScript da Aula 07 (localStorage, validação JS, controles de mídia) | ✅ Aprovado (seção 10) |
+| Rota `/api/status` e EcoBot oculto sem chave | ✅ Aprovado (seção 11) |
 
 ---
 
@@ -30,7 +31,8 @@ Resumo:
   uma pequena mudança de texto (a lista "Como a mídia é publicada"). As outras páginas não mudaram desde
   então; só o CSS foi ajustado. Em **16/11/2026**, depois das mudanças da Aula 07, `contato.html`,
   `midia.html` e o exemplo `exemplos/teste-local-storage/scriptstorage.html` foram validados de novo
-  (versão `vnu 26.11.14`), e as capturas e os relatórios JSON dessas páginas foram substituídos.
+  (versão `vnu 26.11.14`), e as capturas e os relatórios JSON dessas páginas foram substituídos. Depois, na mesma
+  data, `acessibilidade.html` foi validada de novo, por causa da observação "(quando o assistente estiver ativo)".
 - **Evidências:** uma captura de tela da página de resultado por página (`w3c-<página>.png`) e o relatório
   completo do validador em JSON (`w3c-<página>.json`, gerado com `?out=json`).
 
@@ -40,7 +42,7 @@ Resumo:
 | `sobre.html` | 0 | 0 | 8 | [w3c-sobre.png](evidencias/w3c-sobre.png) | [JSON](evidencias/w3c-sobre.json) |
 | `projetos.html` | 0 | 0 | 8 | [w3c-projetos.png](evidencias/w3c-projetos.png) | [JSON](evidencias/w3c-projetos.json) |
 | `impacto.html` | 0 | 0 | 8 | [w3c-impacto.png](evidencias/w3c-impacto.png) | [JSON](evidencias/w3c-impacto.json) |
-| `acessibilidade.html` | 0 | 0 | 8 | [w3c-acessibilidade.png](evidencias/w3c-acessibilidade.png) | [JSON](evidencias/w3c-acessibilidade.json) |
+| `acessibilidade.html` (16/11, de novo) | 0 | 0 | 8 | [w3c-acessibilidade.png](evidencias/w3c-acessibilidade.png) | [JSON](evidencias/w3c-acessibilidade.json) |
 | `galeria.html` | 0 | 0 | 16 | [w3c-galeria.png](evidencias/w3c-galeria.png) | [JSON](evidencias/w3c-galeria.json) |
 | `midia.html` (16/11) | 0 | 0 | 10 | [w3c-midia.png](evidencias/w3c-midia.png) | [JSON](evidencias/w3c-midia.json) |
 | `noticias.html` | 0 | 0 | 8 | [w3c-noticias.png](evidencias/w3c-noticias.png) | [JSON](evidencias/w3c-noticias.json) |
@@ -151,9 +153,13 @@ recomendado para a equipe:
 1. Ativar o NVDA ou o Narrador.
 2. Navegar pelos títulos (tecla H) e pelas regiões (tecla D).
 3. Preencher o formulário de contato e ouvir as mensagens de erro.
-4. Usar o EcoBot.
+4. Usar o EcoBot, se ele estiver ativo (só aparece quando o servidor tem a chave da API).
 
 **Resultado:** ✅ aprovado na verificação automática; teste manual pendente.
+
+**Teste manual com NVDA:** ainda não executado. O passo a passo está em [`checklist-a2.md`](checklist-a2.md), na seção
+"Testes recomendados antes da apresentação". Anote aqui a data, quem testou, as páginas testadas e os problemas
+encontrados.
 
 ## 5. Responsividade
 
@@ -227,6 +233,8 @@ exibida e anunciada.
 
 **Limitação:** o arquivo `.env` local não tem a chave `ANTHROPIC_API_KEY`, por isso a resposta da IA não foi
 testada aqui. Esse teste deve ser feito no site publicado no Railway, onde a chave é cadastrada no painel.
+Desde 16/11/2026 o EcoBot nem aparece quando o servidor não tem a chave (seção 11). A linha "sem chave" acima continua
+valendo para quem chama a rota `POST /api/chat` diretamente.
 
 ## 9. Observações do Lighthouse (fora dos critérios de acessibilidade)
 
@@ -308,3 +316,42 @@ Captura com vários erros: [js-validacao-erros-contato.png](evidencias/js-valida
 | Sem rolagem horizontal em `contato.html` (com todos os erros visíveis) e em `midia.html` | ✅ Testado a 500 px, a menor largura de janela que o Chrome permite; os botões quebram linha. O teste a 375 px de 10/11 (seção 5) não foi repetido |
 | Nenhum `alert()` no site (`public/js/`) | ✅ 0 ocorrências. O exemplo da equipe usa `alert()` e foi mantido sem mudar a lógica, a pedido da equipe: é uma página de estudo à parte, fora do menu |
 | Validação W3C de `contato.html`, `midia.html`, do exemplo e do CSS | ✅ Ver seção 1 |
+
+## 11. EcoBot oculto sem a chave da API (16/11/2026)
+
+O EcoBot é um recurso extra, não exigido pela A2. Ele depende de uma chave de API paga
+(`ANTHROPIC_API_KEY`). Sem a chave, o botão "Falar com o EcoBot" não deve aparecer. A rota `GET /api/status`
+(`server.js`) diz ao navegador se o EcoBot está ativo, e o `js/ecobot.js` só monta o chat quando a resposta é
+`{"ecobot": true}`.
+
+Ambiente: dois servidores locais ao mesmo tempo. Um sem a chave (porta 3100; a linha `ANTHROPIC_API_KEY` do
+`.env` está vazia) e outro com uma chave **falsa**, criada só para o teste (`chave-falsa-de-teste`, porta 3101), que
+apenas simula a presença da variável. Navegador: Google Chrome com perfil isolado e sem cache.
+
+### 11.1 Rota `GET /api/status`
+
+| Caso | Esperado | Resultado |
+|---|---|---|
+| Servidor sem a chave | `{"ecobot": false}` | ✅ `{"ecobot":false}` |
+| Servidor com a chave | `{"ecobot": true}` | ✅ `{"ecobot":true}` |
+| A resposta não revela a chave | Nenhuma parte da chave no corpo | ✅ O corpo tem só `{"ecobot":true}`; a busca pelo texto da chave achou 0 ocorrências |
+| Sem cache | Cabeçalho `Cache-Control: no-store` | ✅ Presente nos dois casos |
+| Outro método | `POST /api/status` não existe | ✅ HTTP 404 (`{"erro":"Rota não encontrada."}`) |
+
+### 11.2 EcoBot na página
+
+| Caso | Esperado | Resultado |
+|---|---|---|
+| Sem chave: as 10 páginas | Nenhum botão, janela ou aviso do EcoBot | ✅ 0 elementos `.ecobot`, `.ecobot-abrir` e `#ecobot-painel` nas 10 páginas (título e `h1` de cada página conferidos, para garantir que carregaram) |
+| Sem chave: console | Sem erros | ✅ 0 erros de script nas 10 páginas; console vazio em `index`, `contato` e `midia`, abertas numa primeira visita sem cache |
+| Sem chave: outros recursos | Formulário e vídeo funcionam como antes | ✅ `contato.html` mostra "Enviar mensagem" e "Limpar dados"; `midia.html` mostra os 5 botões de mídia |
+| Conferência final com `npm run dev` (porta 3000, sem chave, contexto novo do navegador) | 10 páginas e o exemplo abrem sem o EcoBot e sem erros | ✅ `/api/status` = `{"ecobot":false}`; 11 de 11 páginas com 0 elementos do EcoBot e 0 erros; console vazio; `/favicon.ico` → 204 |
+| Com chave | O EcoBot aparece e funciona como antes | ✅ Botão "Falar com o EcoBot"; ao clicar, `aria-expanded="true"` e foco em `#ecobot-entrada`; Esc fecha e devolve o foco ao botão |
+| Com chave, mas a consulta falha | Nada aparece | ✅ Com `fetch("/api/status")` simulando falha de rede: 0 elementos do EcoBot e nenhum erro no console |
+| `acessibilidade.html` | Atalhos do EcoBot continuam listados, com a observação | ✅ "(quando o assistente estiver ativo)" nos 2 itens que citam o EcoBot; W3C: 0 erros e 0 avisos ([captura](evidencias/w3c-acessibilidade.png), [JSON](evidencias/w3c-acessibilidade.json)) |
+
+### 11.3 Correção feita durante o teste: favicon
+
+Na primeira visita, sem cache, o navegador pede `/favicon.ico` sozinho. Como o site não tem esse arquivo, aparecia
+um erro 404 no console. O `server.js` passou a responder `204` (sem conteúdo) nesse endereço, sem mexer nas
+páginas. Depois da correção: `/favicon.ico` → 204 e console vazio.

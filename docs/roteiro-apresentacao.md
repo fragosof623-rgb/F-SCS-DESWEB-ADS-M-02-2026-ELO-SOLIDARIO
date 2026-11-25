@@ -24,7 +24,7 @@ no total (perto de 1 minuto por slide e 2 minutos e meio para a demonstração a
 | 10 | Hospedagem (`orcamento_hospedagem.html`) e documentação | Kaue Cândido Alberti |
 | 11 | Contato (`contato.html`): ViaCEP, validação JS e localStorage | Felipe Fragoso |
 | 12 | Demonstração ao vivo | Felipe Fragoso (com Jihady Nikuluz Cardoso na parte de mídia) |
-| 13 | GitHub + Railway | Felipe Fragoso |
+| 13 | GitHub + Render | Felipe Fragoso |
 | 14 | Encerramento, link do site e do repositório | Felipe Fragoso |
 
 ---
@@ -180,13 +180,16 @@ precisa ensinar a checar a informação."
 **No slide:** captura da tabela de `orcamento_hospedagem.html` e os tópicos:
 
 - Comparativo de hospedagem e domínio, com fonte e data de cada preço
-- Recomendação: Railway, plano Hobby (US$ 5 por mês); domínio .com.br opcional (R$ 40,00 por ano)
+- Hoje: Render, plano Free (US$ 0), que "dorme" após 15 minutos sem acesso; alternativa paga: Railway Hobby
+  (US$ 5 por mês); domínio .com.br opcional (R$ 40,00 por ano)
 - Documentação em `docs/`: escopo (.md, .docx e .pdf), diário de bordo, orçamento, testes, fontes, evidências
   W3C, checklist da A2 e este roteiro
 
 **O que falar:**
-"Comparamos várias hospedagens e recomendamos manter o Railway no plano Hobby, porque ele roda o servidor Node
-do EcoBot o tempo todo e publica sozinho a cada envio ao GitHub. Toda a documentação está na pasta docs: o
+"Comparamos várias hospedagens. Começamos no Railway e, quando o teste gratuito acabou, migramos para o Render,
+no plano grátis. Ele roda o servidor Node sem custo; a desvantagem é que o site dorme sem acessos e o primeiro
+acesso leva cerca de 50 segundos. Se o site precisasse responder sempre na hora, a alternativa paga seria o
+Railway Hobby, por 5 dólares por mês. Toda a documentação está na pasta docs: o
 escopo, o diário de bordo com cada etapa, os testes executados e as evidências da validação W3C."
 
 ## Slide 11 — Contato: ViaCEP, validação com JavaScript e localStorage
@@ -247,21 +250,23 @@ todas as mensagens ficam na própria página, para que o leitor de tela consiga 
 **Plano B:** se a internet falhar, rodar o site localmente com `npm run dev` (http://localhost:3000). O ViaCEP e
 o YouTube precisam de internet; o formulário, o localStorage e o vídeo da TV Senado funcionam sem ela.
 
-## Slide 13 — GitHub + Railway
+## Slide 13 — GitHub + Render
 
 **Quem apresenta:** Felipe Fragoso
 
 **No slide:**
 
 - Código no GitHub, com histórico de commits de cada etapa
-- O Railway publica o site automaticamente a cada `git push` no branch `main`
+- O site está no Render (plano Free); depois do `git push` no `main`, a publicação é feita pelo botão
+  "Manual Deploy → Deploy latest commit"
 - Servidor Node + Express: entrega as páginas e a rota do EcoBot
 - EcoBot (assistente com IA): desativado nesta versão; aparece sozinho quando a chave da API é cadastrada no servidor
 - A chave da API fica só em variável de ambiente, nunca no código
 
 **O que falar:**
-"O código está no GitHub, e cada etapa do trabalho virou um commit. O Railway está ligado ao repositório:
-quando enviamos uma alteração para o branch main, o site é publicado sozinho. O projeto inclui um assistente com
+"O código está no GitHub, e cada etapa do trabalho virou um commit. O Render está ligado ao repositório:
+depois de enviar uma alteração para o branch main, clicamos em Manual Deploy e o site é publicado com o último
+commit. Antes, o site ficava no Railway, mas o teste gratuito acabou e migramos. O projeto inclui um assistente com
 IA, o EcoBot, que fica desativado nesta versão acadêmica porque depende de uma chave de API paga; ele aparece
 sozinho quando a chave é cadastrada no servidor."
 
@@ -271,7 +276,7 @@ sozinho quando a chave é cadastrada no servidor."
 
 **No slide:**
 
-- **Site:** https://f-scs-desweb-ads-m-02-2026-elo-solidario-production.up.railway.app
+- **Site:** https://elo-solidario.onrender.com
 - **Repositório:** https://github.com/fragosof623-rgb/F-SCS-DESWEB-ADS-M-02-2026-ELO-SOLIDARIO
 - Nomes da equipe NEXT HTML
 - "Perguntas?"

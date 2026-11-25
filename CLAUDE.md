@@ -8,7 +8,7 @@ As regras detalhadas estão em `.cursor/rules/*.mdc` e valem igualmente aqui.
 
 - `npm install` — instala as dependências
 - `npm run dev` — servidor local com recarga automática (http://localhost:3000)
-- `npm start` — servidor como em produção (usado pelo Railway)
+- `npm start` — servidor como em produção (usado pelo Render)
 
 ## Estrutura
 
@@ -26,6 +26,6 @@ As regras detalhadas estão em `.cursor/rules/*.mdc` e valem igualmente aqui.
 - Um único CSS (`public/css/style.css`), sempre com as variáveis de `:root`. JavaScript do navegador puro,
   sem bibliotecas, carregado com `defer`; use `textContent` para conteúdo do usuário ou da rede.
 - Textos, comentários e nomes em português do Brasil; arquivos em minúsculas; caminhos relativos.
-- **Segredos só em variáveis de ambiente** (`.env` local ou painel do Railway). Nunca escreva chaves no
+- **Segredos só em variáveis de ambiente** (`.env` local ou painel do Render). Nunca escreva chaves no
   código, no `.env.example`, no `.cursor/mcp.json` ou em commits. Confira `git status` antes de commitar.
 - **Não invente** dados, estatísticas, notícias ou imagens de terceiros: só com fonte real e identificável.

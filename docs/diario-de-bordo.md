@@ -178,3 +178,28 @@ como indica a linha `Co-Authored-By` de cada commit.
   - **Favicon.** Os testes numa primeira visita mostraram um erro 404 no console, porque o navegador pede
     `/favicon.ico` sozinho e o site não tem esse arquivo. O servidor passou a responder "sem conteúdo" (204)
     nesse endereço.
+
+## 24/11/2026 — Migração da hospedagem do Railway para o Render
+
+- **O que foi feito:**
+  - **Nova hospedagem.** O período de teste gratuito do Railway acabou, e o site saiu do ar no endereço antigo.
+    Ele foi publicado no **Render, plano Free**, no endereço https://elo-solidario.onrender.com (respondeu 200
+    em 24/11/2026). O código não mudou: o Render executa `npm install` e `npm start`, como o Railway fazia.
+  - **Links.** O endereço antigo do Railway foi trocado pelo novo no README e na documentação (`docs/`).
+  - **Orçamento.** Em `orcamento_hospedagem.html` e `docs/orcamento.md`, o Render Free passou a ser marcado como
+    a hospedagem usada hoje, com a explicação da migração e da limitação do plano grátis. O Railway Hobby
+    continua na tabela como alternativa paga (US$ 5 por mês), e a estimativa de custo anual ganhou as linhas do
+    Render Free.
+  - **Publicação.** Os documentos que diziam que a publicação era automática a cada `git push` agora explicam
+    que, no Render, ela é feita pelo botão **Manual Deploy → Deploy latest commit** no painel.
+  - **Comentários e regras.** As menções ao "painel do Railway" em `server.js`, `lib/ia.js`, `.env.example`,
+    `CLAUDE.md` e `.cursor/rules/seguranca-segredos.mdc` passaram a citar o Render.
+- **Responsável:** Felipe Fragoso (publicação e envio pelo Git, com apoio do Claude Code); Kaue Cândido Alberti
+  (página de orçamento e documentação, conforme o escopo).
+- **Dificuldades e decisões:**
+  - **Limitação do plano grátis.** O serviço "dorme" após 15 minutos sem acesso, e o primeiro acesso depois
+    disso leva cerca de 50 segundos. A recomendação é abrir o site alguns minutos antes da apresentação.
+  - **Por que o Render Free.** Ele roda o servidor Node sem custo. O Railway Free tem pouca memória e não aceita
+    domínio próprio; o Railway Hobby resolveria a espera, mas é pago.
+  - **Histórico.** As entradas anteriores deste diário, que falam do Railway, foram mantidas como estavam,
+    porque registram o que aconteceu na época.

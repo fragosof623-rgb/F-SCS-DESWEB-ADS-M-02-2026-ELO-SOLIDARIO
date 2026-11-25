@@ -24,7 +24,7 @@ Todas têm `lang="pt-BR"`, um único `h1`, `<title>` próprio (10 títulos difer
 - [x] **`midia.html`**: vídeo, áudio e iframe. Ver a seção 4 deste checklist.
 - [x] **`noticias.html`**: notícias com fonte. "Notícias recentes" (6 `<article>` com veículo, data e link) e "Como saber se uma notícia é confiável".
 - [x] **`contato.html`**: formulário validado, dados fictícios e equipe. Formulário (ver a seção 3), "Dados de contato" em `<address>`, com aviso de que são fictícios, e "Equipe NEXT HTML" com os 5 integrantes.
-- [x] **`orcamento_hospedagem.html`**: comparativo de hospedagem e domínio. "Como o site está publicado hoje", "Comparativo de hospedagem", "Domínio" e "Nossa recomendação" (Railway Hobby, US$ 5 por mês).
+- [x] **`orcamento_hospedagem.html`**: comparativo de hospedagem e domínio. "Como o site está publicado hoje", "Comparativo de hospedagem", "Domínio" e "Nossa recomendação" (Render Free, usado hoje; Railway Hobby, US$ 5 por mês, como alternativa paga).
 - [x] **Navegação entre as páginas**: o menu principal liga as 10 páginas em todas elas, com `aria-current="page"` na página atual (conferido nas 10).
 
 ## 2. HTML5 semântico e títulos
@@ -108,7 +108,7 @@ Todas têm `lang="pt-BR"`, um único `h1`, `<title>` próprio (10 títulos difer
 ## 9. Publicação
 
 - [x] **GitHub**: repositório público https://github.com/fragosof623-rgb/F-SCS-DESWEB-ADS-M-02-2026-ELO-SOLIDARIO, branch `main`.
-- [x] **Railway**: site no ar em https://f-scs-desweb-ads-m-02-2026-elo-solidario-production.up.railway.app (respondeu 200 em 16/11/2026), publicado automaticamente a cada `git push` no `main`.
+- [x] **Render** (plano Free): site no ar em https://elo-solidario.onrender.com (respondeu 200 em 24/11/2026). A publicação é feita pelo botão "Manual Deploy → Deploy latest commit" depois de cada `git push` no `main`. Antes o site ficava no Railway; a migração ocorreu em novembro de 2026, quando o período de teste gratuito acabou.
 - [x] **Segredos fora do código**: a chave da API fica só em variável de ambiente; `.env`, `node_modules/` e `.vscode/` estão no `.gitignore`.
 - [x] **EcoBot é um recurso extra, não exigido pela A2**: ele fica desativado quando o servidor não tem a chave `ANTHROPIC_API_KEY`. A rota `GET /api/status` (`server.js`) responde só `{"ecobot": true}` ou `{"ecobot": false}`, nunca a chave, e o `js/ecobot.js` só cria o botão e a janela do chat quando recebe `true`. Sem chave, ou se a consulta falhar, nada aparece na página (testado em 16/11/2026, `docs/testes.md`, seção 11).
 

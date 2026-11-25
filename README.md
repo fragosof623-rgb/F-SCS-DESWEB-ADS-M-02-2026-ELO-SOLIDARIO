@@ -7,7 +7,7 @@ familiares e artesãos geram renda e impacto social por meio da cooperação, da
 São 10 páginas acessíveis, pensadas primeiro para pessoas com deficiência, mais o assistente de IA **EcoBot**,
 que responde dúvidas sobre o tema. Todo dado, imagem, vídeo ou notícia de terceiros tem fonte real indicada.
 
-Site no ar: https://f-scs-desweb-ads-m-02-2026-elo-solidario-production.up.railway.app
+Site no ar: https://elo-solidario.onrender.com
 
 ## Equipe NEXT HTML
 
@@ -27,7 +27,7 @@ Site no ar: https://f-scs-desweb-ads-m-02-2026-elo-solidario-production.up.railw
 - **Node.js + Express**: servidor que entrega o site e a rota `POST /api/chat`
 - **ViaCEP**: preenche o endereço pelo CEP no formulário de contato
 - **EcoBot** com a **API do Claude** (Anthropic), pelo SDK oficial `@anthropic-ai/sdk`
-- **GitHub + Railway**: versionamento e publicação
+- **GitHub + Render** (plano Free): versionamento e publicação
 
 ## Recursos de JavaScript (Aula 07)
 
@@ -92,5 +92,7 @@ com links e datas de consulta, estão em [`docs/fontes.md`](docs/fontes.md).
 
 ## Publicação
 
-O Railway publica automaticamente a cada `git push` no branch `main`. Cadastre a variável
-`ANTHROPIC_API_KEY` no painel do Railway. Passo a passo em [`docs/plano-contexto.md`](docs/plano-contexto.md).
+O site está no Render (plano Free). A publicação não é automática: depois do `git push` no branch `main`, clique em
+**Manual Deploy → Deploy latest commit** no painel do Render. Para ativar o EcoBot, cadastre a variável
+`ANTHROPIC_API_KEY` em **Environment**. No plano grátis o serviço "dorme" após 15 minutos sem acesso, e o
+primeiro acesso depois disso leva cerca de 50 segundos. Passo a passo em [`docs/plano-contexto.md`](docs/plano-contexto.md).

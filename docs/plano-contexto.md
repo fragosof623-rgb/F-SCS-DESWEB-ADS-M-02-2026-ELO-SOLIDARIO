@@ -64,7 +64,7 @@ Assistente de IA disponível em todas as páginas (botão "Falar com o EcoBot", 
 | IA | Claude (Anthropic) via `@anthropic-ai/sdk` |
 | Configuração | `dotenv` (arquivo `.env` local, fora do Git) |
 | APIs externas | ViaCEP (busca de endereço no formulário de contato) |
-| Versionamento e deploy | GitHub + Railway |
+| Versionamento e deploy | GitHub + Render (plano Free; começou no Railway) |
 
 ### Estrutura de pastas
 
@@ -92,16 +92,22 @@ npm run dev               # reinicia sozinho ao salvar arquivos
 
 Abra http://localhost:3000.
 
-## 7. Como fazer o deploy (Railway)
+## 7. Como fazer o deploy (Render)
+
+O site está no Render, plano Free, em https://elo-solidario.onrender.com. Até novembro de 2026 ele ficava no Railway,
+que encerrou o período de teste gratuito. No Render a publicação **não é automática** a cada push.
 
 1. Envie as alterações para o branch `main` do GitHub (`git push`).
-2. No Railway, o serviço ligado ao repositório detecta o `package.json` e executa `npm install` e `npm start`.
-3. Em **Variables**, cadastre:
+2. No painel do Render, abra o serviço e clique em **Manual Deploy → Deploy latest commit**. O Render executa
+   `npm install` e `npm start` com o último commit do `main`.
+3. Em **Environment**, cadastre:
    - `ANTHROPIC_API_KEY` — chave da API da Anthropic (obrigatória para o EcoBot).
    - `IA_MODELO` — opcional; se vazio, usa `claude-opus-5-5`.
-   - `PORT` não precisa ser cadastrada: o Railway define sozinho.
-4. Em **Settings → Networking**, gere um domínio público (se ainda não houver).
-5. Teste a página inicial e o EcoBot no endereço publicado.
+   - `PORT` não precisa ser cadastrada: o Render define sozinho.
+4. O endereço público (`elo-solidario.onrender.com`) já vem com o serviço; um domínio próprio pode ser ligado
+   em **Settings → Custom Domains**.
+5. Teste a página inicial e o EcoBot no endereço publicado. No plano grátis o serviço "dorme" após 15 minutos
+   sem acesso, e o primeiro acesso depois disso leva cerca de 50 segundos.
 
 **Segurança:** a chave nunca deve aparecer no código, em commits, em prints ou em mensagens. Se vazar,
 revogue-a no console da Anthropic e crie outra.

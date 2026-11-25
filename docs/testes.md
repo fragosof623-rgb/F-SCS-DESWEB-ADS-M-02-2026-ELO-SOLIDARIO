@@ -232,7 +232,7 @@ exibida e anunciada.
 | Interface (teclado, `aria-live`, Esc) | Ver seção 2 | ✅ Aprovado |
 
 **Limitação:** o arquivo `.env` local não tem a chave `ANTHROPIC_API_KEY`, por isso a resposta da IA não foi
-testada aqui. Esse teste deve ser feito no site publicado no Railway, onde a chave é cadastrada no painel.
+testada aqui. Esse teste deve ser feito no site publicado no Render, depois de cadastrar a chave no painel (Environment).
 Desde 16/11/2026 o EcoBot nem aparece quando o servidor não tem a chave (seção 11). A linha "sem chave" acima continua
 valendo para quem chama a rota `POST /api/chat` diretamente.
 

@@ -15,7 +15,7 @@ const LIMITE_REQUISICOES = 10;     // por IP, a cada minuto
 const JANELA_MS = 60 * 1000;
 
 app.disable("x-powered-by");
-app.set("trust proxy", 1); // o Railway fica na frente do app como proxy
+app.set("trust proxy", 1); // o Render fica na frente do app como proxy
 app.use(express.json({ limit: "32kb" }));
 app.use(express.static(path.join(import.meta.dirname, "public")));
 

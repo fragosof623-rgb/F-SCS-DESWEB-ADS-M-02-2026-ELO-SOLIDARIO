@@ -61,9 +61,20 @@
       <div class="container conteudo-texto">
         <h2 id="atual-heading">Como o site está publicado hoje</h2>
         <p>
-          O código fica no GitHub e é publicado no Railway. Como o site tem um servidor Node.js (que faz o
-          EcoBot funcionar), a hospedagem precisa executar aplicações Node — uma hospedagem só de arquivos
-          estáticos não seria suficiente.
+          O código fica no GitHub e o site está publicado no <strong>Render, plano Free</strong>, no endereço
+          <a href="https://elo-solidario.onrender.com">elo-solidario.onrender.com</a>. Como o site tem um
+          servidor Node.js (que faz o EcoBot funcionar), a hospedagem precisa executar aplicações Node — uma
+          hospedagem só de arquivos estáticos não seria suficiente.
+        </p>
+        <p>
+          Começamos no Railway e migramos para o Render em novembro de 2026, quando o período de teste gratuito do
+          Railway acabou. No Render a publicação não é automática: depois de enviar as alterações ao GitHub, a
+          equipe clica em <strong>Manual Deploy → Deploy latest commit</strong> no painel.
+        </p>
+        <p>
+          <strong>Limitação do plano grátis:</strong> o serviço “dorme” após 15 minutos sem acesso. O primeiro
+          acesso depois disso leva cerca de 50 segundos para abrir a página; os seguintes são rápidos. Antes de uma
+          apresentação, vale abrir o site alguns minutos antes.
         </p>
       </div>
     </section>
@@ -92,7 +103,14 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Railway — Hobby <span class="destaque-tabela">(usado hoje)</span></th>
+                <th scope="row">Render — Free <span class="destaque-tabela">(usado hoje)</span></th>
+                <td>US$ 0</td>
+                <td>0,1 CPU e 512 MB; 750 horas por mês. O serviço “dorme” após 15 minutos sem acesso, e o primeiro acesso depois disso leva cerca de 50 segundos.</td>
+                <td>Sim (Node.js com Express), mas a primeira resposta pode demorar. Publicação pelo botão “Manual Deploy”.</td>
+                <td><a href="https://render.com/docs/free" target="_blank" rel="noopener">render.com/docs/free<span class="visually-hidden"> (abre em nova aba)</span></a></td>
+              </tr>
+              <tr>
+                <th scope="row">Railway — Hobby <span class="destaque-tabela">(alternativa paga)</span></th>
                 <td>US$ 5 por mês</td>
                 <td>US$ 5 de crédito de uso por mês; até 48 vCPU e 48 GB por serviço; 2 domínios próprios. Uso acima do crédito é cobrado à parte.</td>
                 <td>Sim, servidor Node sempre ligado, publicado a partir do GitHub.</td>
@@ -104,13 +122,6 @@
                 <td>US$ 1 de crédito de uso por mês; até 1 vCPU e 0,5 GB; nenhum domínio próprio.</td>
                 <td>Sim, com recursos bem limitados.</td>
                 <td><a href="https://railway.com/pricing" target="_blank" rel="noopener">railway.com/pricing<span class="visually-hidden"> (abre em nova aba)</span></a></td>
-              </tr>
-              <tr>
-                <th scope="row">Render — Free</th>
-                <td>US$ 0</td>
-                <td>0,1 CPU e 512 MB; 750 horas por mês. O serviço “dorme” após 15 minutos sem acesso e leva cerca de 1 minuto para voltar.</td>
-                <td>Sim (Node.js com Express), mas a primeira resposta pode demorar.</td>
-                <td><a href="https://render.com/docs/free" target="_blank" rel="noopener">render.com/docs/free<span class="visually-hidden"> (abre em nova aba)</span></a></td>
               </tr>
               <tr>
                 <th scope="row">Hostinger — VPS KVM 1</th>
@@ -153,16 +164,20 @@
           Um endereço próprio terminado em .com.br é registrado no Registro.br, que cobra
           <strong>R$ 40,00 por ano</strong> (consulta em 09/11/2026, na
           <a href="https://registro.br/dominio/precos/" target="_blank" rel="noopener">página de preços do Registro.br<span class="visually-hidden"> (abre em nova aba)</span></a>).
-          O registro exige CPF ou CNPJ. Sem domínio próprio, o site continua no ar no endereço gratuito que o Railway fornece.
+          O registro exige CPF ou CNPJ. Sem domínio próprio, o site continua no ar no endereço gratuito que o Render fornece (elo-solidario.onrender.com).
         </p>
 
         <h2 id="recomendacao-heading">Nossa recomendação</h2>
         <p>
-          <strong>Manter o Railway no plano Hobby (US$ 5 por mês).</strong> Ele executa o servidor Node o tempo
-          todo, então o EcoBot responde na hora, e publica sozinho a cada envio ao GitHub, sem precisar administrar
-          um servidor. O crédito de uso incluído tende a cobrir um site pequeno como o nosso; o consumo deve ser
-          acompanhado no painel. O plano Free do Railway e o do Render servem para testes, mas o Render “dorme”
-          sem acessos, e o Railway Free tem pouca memória e não aceita domínio próprio.
+          <strong>Para a versão acadêmica, manter o Render no plano Free (US$ 0).</strong> Ele roda o servidor
+          Node sem custo, e a espera de cerca de 50 segundos no primeiro acesso é aceitável para um site de
+          estudo. O Railway Free não serve como alternativa, porque tem pouca memória e não aceita domínio próprio.
+        </p>
+        <p>
+          <strong>Se o site precisar responder na hora, sempre, a alternativa paga é o Railway Hobby (US$ 5 por
+          mês).</strong> Ele mantém o servidor Node ligado o tempo todo, publica sozinho a cada envio ao GitHub e o
+          crédito de uso incluído tende a cobrir um site pequeno como o nosso; o consumo deve ser acompanhado no
+          painel.
         </p>
         <p>
           A VPS da Hostinger também roda Node e cobra em reais, mas exige configurar e manter o servidor. Vercel,
